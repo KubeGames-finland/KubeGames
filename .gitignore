@@ -1,20 +1,65 @@
-# KubeGames
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelisivuni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
-KubeGames is a free-to-play browser-based gaming platform that allows users to play games directly in their browser without downloading or installing anything. The platform offers a wide variety of games from different genres, designed to provide a user-friendly and smooth gaming experience, similar to well-known gaming platforms like 1001 and CrazyGames.
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-## Features
+        .game-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
 
-- **Free to Play:** Play games instantly in your browser without downloading or installing anything.
-- **Diverse Game Selection:** Offers a wide range of games across various genres, such as action, puzzles, racing games, and more.
-- **Simple User Interface:** Easy to use and navigate for a smooth gaming experience.
-- **No Registration Required:** Users can play games immediately without the need to create an account or sign in.
-- **Responsive Design:** The platform works well on all devices, including desktops, tablets, and smartphones.
+        .game-bar {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 24px;
+            width: 300px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-## Installation Instructions
+        .game-bar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Tervetuloa Pelisivulleni!</h1>
+        <p>Paina palkkia aloittaaksesi pelin</p>
+    </div>
 
-### Local Development Environment
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/username/KubeGames.git
-
+    <div class="game-bar-container">
+        <div class="game-bar" onclick="window.location.href='https://linkkisi.com/peli1'">
+            Peli 1
+        </div>
+        <div class="game-bar" onclick="window.location.href='https://linkkisi.com/peli2'">
+            Peli 2
+        </div>
+        <div class="game-bar" onclick="window.location.href='https://linkkisi.com/peli3'">
+            Peli 3
+        </div>
+    </div>
+</body>
+</html>
