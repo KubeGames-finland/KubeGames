@@ -5,27 +5,42 @@ A free online gaming platform where users can play games directly in the browser
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelisivuni</title>
+    <title>KubeGames - Pelisivusi</title>
     <style>
+        /* Taustaväri ja yleinen ulkoasu */
         body {
+            background-color: #1E90FF; /* Sininen tausta */
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            color: white;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         .header {
-            background-color: #333;
-            color: white;
             text-align: center;
             padding: 20px;
+            margin-bottom: 30px;
         }
 
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        /* Palkkien muotoilu */
         .game-bar-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            width: 100%;
         }
 
         .game-bar {
@@ -44,15 +59,28 @@ A free online gaming platform where users can play games directly in the browser
         .game-bar:hover {
             background-color: #45a049;
         }
+
+        /* Responsiivisuus */
+        @media (max-width: 600px) {
+            .game-bar {
+                width: 80%;
+                font-size: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Tervetuloa Pelisivulleni!</h1>
-        <p>Paina palkkia aloittaaksesi pelin</p>
+        <h1>Tervetuloa KubeGames-pelisivullesi!</h1>
+        <p>Valitse alla olevista palkkeista peli aloittaaksesi.</p>
     </div>
 
     <div class="game-bar-container">
+        <!-- Palkit, jotka vievät eri peleihin -->
         <div class="game-bar" onclick="window.location.href='https://linkkisi.com/peli1'">
             Peli 1
         </div>
