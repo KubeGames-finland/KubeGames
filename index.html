@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KubeGames</title>
+    <style>
+        /* Taustaväri ja tekstin väri */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ylävalikko */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #222;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        /* KubeGames vasemmalla ylhäällä */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Oikeanpuoleinen valikko */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Palkit pelien lisäykselle */
+        .game-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            margin-top: 100px; /* Varaa tilaa ylävalikolle */
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .game-bar div {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .game-bar div h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .game-bar div a {
+            color: white;
+            text-decoration: none;
+            background-color: #555;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .game-bar div a:hover {
+            background-color: #888;
+        }
+
+        /* Responsiivisuus */
+        @media (max-width: 768px) {
+            .game-bar div {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-bar div {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ylävalikko -->
+    <header>
+        <div class="logo">KubeGames</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Search</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Palkit pelien lisäämistä varten -->
+    <div class="game-bar">
+        <div>
+            <h3>Game 1</h3>
+            <a href="#">Play Game 1</a>
+        </div>
+        <div>
+            <h3>Game 2</h3>
+            <a href="#">Play Game 2</a>
+        </div>
+        <div>
+            <h3>Game 3</h3>
+            <a href="#">Play Game 3</a>
+        </div>
+    </div>
+
+</body>
+</html>
 
