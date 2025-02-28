@@ -6,7 +6,7 @@
     <title>KubeGames</title>
     <style>
         body {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -22,7 +22,7 @@
             align-items: center;
             width: 100%;
             padding: 15px 30px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             position: fixed;
             top: 0;
             left: 0;
@@ -59,42 +59,54 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
+        main {
+            margin-top: 100px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
-            margin-top: 100px;
-            padding: 20px;
-            width: 80%;
-            max-width: 900px;
+            margin-top: 50px;
+            padding-bottom: 50px;
         }
 
         .grid-item {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: linear-gradient(135deg, #ff8c00, #ff3b3b);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             text-align: center;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s, background 0.3s;
+            height: 150px;
+            cursor: pointer;
         }
 
         .grid-item:hover {
             transform: scale(1.1);
-            background: linear-gradient(135deg, #ff6b6b, #c0392b);
+            background: linear-gradient(135deg, #ffb347, #ff3b3b);
         }
 
         .grid-item button {
             background: rgba(255, 255, 255, 0.2);
             border: 2px solid white;
             color: white;
-            padding: 10px;
-            font-size: 14px;
+            padding: 12px;
+            font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
             transition: 0.3s;
@@ -118,10 +130,27 @@
         </nav>
     </header>
     
+    <main>
+        <section id="top-rated" class="section">
+            <h2>Top Rated Games</h2>
+            <p>Tässä ovat pelisivuston parhaat pelit!</p>
+        </section>
+
+        <section id="search" class="section">
+            <h2>Search</h2>
+            <p>Täällä voit etsiä pelejä.</p>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>Ota yhteyttä meihin sähköpostitse!</p>
+        </section>
+    </main>
+
     <div class="grid-container">
         <script>
             for (let i = 1; i <= 49; i++) {
-                document.write(`<div class="grid-item"><button onclick="window.location.href='https://example.com/peli${i}'">Peli ${i}</button></div>`);
+                document.write(`<div class="grid-item" onclick="window.location.href='https://example.com/peli${i}'">Peli ${i}</div>`);
             }
         </script>
     </div>
