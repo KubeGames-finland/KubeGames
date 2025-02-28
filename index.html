@@ -59,32 +59,19 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        main {
-            margin-top: 100px;
-            width: 80%;
-            text-align: center;
-        }
-
-        .section {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(7, 120px);
-            grid-template-rows: repeat(7, 120px);
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 15px;
-            margin-top: 50px;
-            padding-bottom: 50px;
+            margin-top: 100px;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
         }
 
         .grid-item {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, #e74c3c, #c0392b);
             display: flex;
             justify-content: center;
@@ -131,23 +118,6 @@
         </nav>
     </header>
     
-    <main>
-        <section id="top-rated" class="section">
-            <h2>Top Rated Games</h2>
-            <p>Tässä ovat pelisivuston parhaat pelit!</p>
-        </section>
-
-        <section id="search" class="section">
-            <h2>Search</h2>
-            <p>Täällä voit etsiä pelejä.</p>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>Ota yhteyttä meihin sähköpostitse!</p>
-        </section>
-    </main>
-
     <div class="grid-container">
         <script>
             for (let i = 1; i <= 49; i++) {
