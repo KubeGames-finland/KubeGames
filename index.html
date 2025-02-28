@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
@@ -146,8 +146,14 @@
     
     <main>
         <div class="grid-container">
+            <!-- Lisää peli 1 -->
+            <div class="grid-item">
+                <button onclick="window.location.href='https://eleanorakh.github.io/street-fighter/'">Street Fighter</button>
+            </div>
+
+            <!-- Muut pelit -->
             <script>
-                for (let i = 1; i <= 49; i++) {
+                for (let i = 2; i <= 49; i++) {
                     document.write(`<div class="grid-item"><button onclick="window.location.href='https://example.com/peli${i}'">Peli ${i}</button></div>`);
                 }
             </script>
@@ -155,11 +161,3 @@
     </main>
 </body>
 </html>
-
-
-
-
-
-
-
-
