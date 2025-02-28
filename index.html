@@ -132,14 +132,44 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        /* Pelin iframe koko näytölle */
-        .game-iframe {
-            margin-top: 30px;
+        /* Pelin iframe modaalina */
+        .game-iframe-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .game-iframe {
+            width: 80vw;
+            height: 80vh;
             border: none;
             border-radius: 10px;
-            display: none; /* Piilotetaan aluksi */
+        }
+
+        /* Sulkemisnappi */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4b2b;
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-btn:hover {
+            background-color: #ff6b6b;
         }
     </style>
 </head>
@@ -160,73 +190,86 @@
             <!-- Pelit -->
             <script>
                 const games = [
-                    {name: "Street Fighter", url: "https://eleanorakh.github.io/street-fighter/"},
-                    {name: "Flappy Bird", url: "https://flappybird.io/"},
-                    {name: "2048 Game", url: "https://play2048.co/"},
-                    {name: "Tetris", url: "https://tetris.com/play-tetris"},
-                    {name: "Snake Game", url: "https://playsnake.org/"},
+                    {name: "Super Mario", url: "https://www.retrogames.cc/arcade-games/super-mario-bros.html"},
                     {name: "Pac-Man", url: "https://www.google.com/search?q=pacman"},
-                    {name: "Pong", url: "https://www.ponggame.org/"},
-                    {name: "Asteroids", url: "https://playclassic.games/asteroids/"},
-                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/"},
-                    {name: "Flappy Bird 2", url: "https://flappybird.io/"},
-                    {name: "Street Fighter", url: "https://eleanorakh.github.io/street-fighter/"},
-                    {name: "Flappy Bird", url: "https://flappybird.io/"},
-                    {name: "2048 Game", url: "https://play2048.co/"},
                     {name: "Tetris", url: "https://tetris.com/play-tetris"},
-                    {name: "Snake Game", url: "https://playsnake.org/"},
-                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman"},
-                    {name: "Pong", url: "https://www.ponggame.org/"},
-                    {name: "Asteroids", url: "https://playclassic.games/asteroids/"},
-                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/"},
-                    {name: "Flappy Bird 2", url: "https://flappybird.io/"},
-                    {name: "Street Fighter", url: "https://eleanorakh.github.io/street-fighter/"},
                     {name: "Flappy Bird", url: "https://flappybird.io/"},
-                    {name: "2048 Game", url: "https://play2048.co/"},
-                    {name: "Tetris", url: "https://tetris.com/play-tetris"},
                     {name: "Snake Game", url: "https://playsnake.org/"},
-                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman"},
-                    {name: "Pong", url: "https://www.ponggame.org/"},
+                    {name: "Space Invaders", url: "https://www.spaceinvadersgame.org/"},
                     {name: "Asteroids", url: "https://playclassic.games/asteroids/"},
-                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/"},
-                    {name: "Flappy Bird 2", url: "https://flappybird.io/"},
-                    {name: "Street Fighter", url: "https://eleanorakh.github.io/street-fighter/"},
-                    {name: "Flappy Bird", url: "https://flappybird.io/"},
-                    {name: "2048 Game", url: "https://play2048.co/"},
-                    {name: "Tetris", url: "https://tetris.com/play-tetris"},
-                    {name: "Snake Game", url: "https://playsnake.org/"},
-                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman"},
                     {name: "Pong", url: "https://www.ponggame.org/"},
-                    {name: "Asteroids", url: "https://playclassic.games/asteroids/"},
+                    {name: "2048", url: "https://play2048.co/"},
                     {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/"},
-                    {name: "Flappy Bird 2", url: "https://flappybird.io/"},
-                    {name: "Street Fighter", url: "https://eleanorakh.github.io/street-fighter/"},
-                    {name: "Flappy Bird", url: "https://flappybird.io/"},
-                    {name: "2048 Game", url: "https://play2048.co/"},
-                    {name: "Tetris", url: "https://tetris.com/play-tetris"},
-                    {name: "Snake Game", url: "https://playsnake.org/"},
-                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman"},
-                    {name: "Pong", url: "https://www.ponggame.org/"},
-                    {name: "Asteroids", url: "https://playclassic.games/asteroids/"},
-                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/"},
-                    {name: "Flappy Bird 2", url: "https://flappybird.io/"}
+                    {name: "Angry Birds", url: "https://www.angrybirds.com/"},
+                    {name: "Candy Crush", url: "https://www.candycrushsaga.com/"},
+                    {name: "Bejeweled", url: "https://www.bejeweled.com/"},
+                    {name: "Doodle Jump", url: "https://www.doodlejump.com/"},
+                    {name: "Jetpack Joyride", url: "https://www.jetpackjoyride.com/"},
+                    {name: "Fruit Ninja", url: "https://www.fruitninja.com/"},
+                    {name: "Geometry Dash", url: "https://www.geometrydash.com/"},
+                    {name: "Cut the Rope", url: "https://www.cuttherope.net/"},
+                    {name: "Subway Surfers", url: "https://www.subwaysurfers.com/"},
+                    {name: "Clash Royale", url: "https://clashroyale.com/"},
+                    {name: "Clash of Clans", url: "https://www.clashofclans.com/"},
+                    {name: "Minecraft", url: "https://www.minecraft.net/"},
+                    {name: "Fortnite", url: "https://www.fortnite.com/"},
+                    {name: "PUBG", url: "https://www.pubg.com/"},
+                    {name: "Call of Duty", url: "https://www.callofduty.com/"},
+                    {name: "League of Legends", url: "https://www.leagueoflegends.com/"},
+                    {name: "Apex Legends", url: "https://www.ea.com/games/apex-legends"},
+                    {name: "Valorant", url: "https://playvalorant.com/"},
+                    {name: "Rocket League", url: "https://www.rocketleague.com/"},
+                    {name: "Overwatch", url: "https://playoverwatch.com/"},
+                    {name: "World of Warcraft", url: "https://worldofwarcraft.com/"},
+                    {name: "Hearthstone", url: "https://playhearthstone.com/"},
+                    {name: "Diablo", url: "https://us.diablo3.com/"},
+                    {name: "Starcraft", url: "https://starcraft2.com/"},
+                    {name: "FIFA", url: "https://www.fifa.com/"},
+                    {name: "NBA 2K", url: "https://www.nba2k.com/"},
+                    {name: "Madden NFL", url: "https://www.easports.com/madden-nfl/"},
+                    {name: "WWE", url: "https://www.wwe.com/"},
+                    {name: "The Sims", url: "https://www.ea.com/games/the-sims"},
+                    {name: "SimCity", url: "https://www.ea.com/games/simcity"},
+                    {name: "Civilization VI", url: "https://www.civilization.com/"},
+                    {name: "Age of Empires", url: "https://www.ageofempires.com/"},
+                    {name: "Total War", url: "https://www.totalwar.com/"},
+                    {name: "RollerCoaster Tycoon", url: "https://www.rollercoastertycoon.com/"},
+                    {name: "Planet Coaster", url: "https://www.planetcoaster.com/"},
+                    {name: "Zoo Tycoon", url: "https://www.microsoft.com/en-us/store/p/zoo-tycoon/"},
+                    {name: "FarmVille", url: "https://www.farmville.com/"}
+                    // Lisää pelejä tarvittaessa
                 ];
 
                 // Lisätään pelit palkkeihin
                 games.forEach((game, index) => {
                     document.write(`
                         <div class="grid-item">
-                            <button onclick="document.getElementById('game-frame').src='${game.url}'; document.getElementById('game-frame').style.display = 'block'">
+                            <button onclick="showGame('${game.url}')">
                                 ${game.name}
                             </button>
                         </div>
                     `);
                 });
+
+                function showGame(gameUrl) {
+                    const iframe = document.getElementById('game-frame');
+                    iframe.src = gameUrl;
+                    document.getElementById('game-modal').style.display = 'flex';
+                }
+
+                function closeModal() {
+                    document.getElementById('game-modal').style.display = 'none';
+                    const iframe = document.getElementById('game-frame');
+                    iframe.src = ''; // Tyhjennetään iframe
+                }
             </script>
         </div>
 
-        <!-- Pelin iframe koko näytölle -->
-        <iframe id="game-frame" class="game-iframe" src=""></iframe>
+        <!-- Pelin iframe modaalina -->
+        <div id="game-modal" class="game-iframe-modal">
+            <button class="close-btn" onclick="closeModal()">X</button>
+            <iframe id="game-frame" class="game-iframe" src=""></iframe>
+        </div>
     </main>
 </body>
 </html>
