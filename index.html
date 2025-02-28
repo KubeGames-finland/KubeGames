@@ -111,10 +111,21 @@
             transition: 0.3s;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .grid-item button:hover {
             background: rgba(255, 255, 255, 0.5);
+        }
+
+        .grid-item img {
+            width: 50px;  /* Kuvakkeen leveys */
+            height: 50px; /* Kuvakkeen korkeus */
+            margin-bottom: 10px;
+            border-radius: 5px;
         }
 
         @keyframes fadeIn {
@@ -190,85 +201,62 @@
             <!-- Pelit -->
             <script>
                 const games = [
-                    {name: "Super Mario", url: "https://www.retrogames.cc/arcade-games/super-mario-bros.html"},
-                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman"},
-                    {name: "Tetris", url: "https://tetris.com/play-tetris"},
-                    {name: "Flappy Bird", url: "https://flappybird.io/"},
-                    {name: "Snake Game", url: "https://playsnake.org/"},
-                    {name: "Space Invaders", url: "https://www.spaceinvadersgame.org/"},
-                    {name: "Asteroids", url: "https://playclassic.games/asteroids/"},
-                    {name: "Pong", url: "https://www.ponggame.org/"},
-                    {name: "2048", url: "https://play2048.co/"},
-                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/"},
-                    {name: "Angry Birds", url: "https://www.angrybirds.com/"},
-                    {name: "Candy Crush", url: "https://www.candycrushsaga.com/"},
-                    {name: "Bejeweled", url: "https://www.bejeweled.com/"},
-                    {name: "Doodle Jump", url: "https://www.doodlejump.com/"},
-                    {name: "Jetpack Joyride", url: "https://www.jetpackjoyride.com/"},
-                    {name: "Fruit Ninja", url: "https://www.fruitninja.com/"},
-                    {name: "Geometry Dash", url: "https://www.geometrydash.com/"},
-                    {name: "Cut the Rope", url: "https://www.cuttherope.net/"},
-                    {name: "Subway Surfers", url: "https://www.subwaysurfers.com/"},
-                    {name: "Clash Royale", url: "https://clashroyale.com/"},
-                    {name: "Clash of Clans", url: "https://www.clashofclans.com/"},
-                    {name: "Minecraft", url: "https://www.minecraft.net/"},
-                    {name: "Fortnite", url: "https://www.fortnite.com/"},
-                    {name: "PUBG", url: "https://www.pubg.com/"},
-                    {name: "Call of Duty", url: "https://www.callofduty.com/"},
-                    {name: "League of Legends", url: "https://www.leagueoflegends.com/"},
-                    {name: "Apex Legends", url: "https://www.ea.com/games/apex-legends"},
-                    {name: "Valorant", url: "https://playvalorant.com/"},
-                    {name: "Rocket League", url: "https://www.rocketleague.com/"},
-                    {name: "Overwatch", url: "https://playoverwatch.com/"},
-                    {name: "World of Warcraft", url: "https://worldofwarcraft.com/"},
-                    {name: "Hearthstone", url: "https://playhearthstone.com/"},
-                    {name: "Diablo", url: "https://us.diablo3.com/"},
-                    {name: "Starcraft", url: "https://starcraft2.com/"},
-                    {name: "FIFA", url: "https://www.fifa.com/"},
-                    {name: "NBA 2K", url: "https://www.nba2k.com/"},
-                    {name: "Madden NFL", url: "https://www.easports.com/madden-nfl/"},
-                    {name: "WWE", url: "https://www.wwe.com/"},
-                    {name: "The Sims", url: "https://www.ea.com/games/the-sims"},
-                    {name: "SimCity", url: "https://www.ea.com/games/simcity"},
-                    {name: "Civilization VI", url: "https://www.civilization.com/"},
-                    {name: "Age of Empires", url: "https://www.ageofempires.com/"},
-                    {name: "Total War", url: "https://www.totalwar.com/"},
-                    {name: "RollerCoaster Tycoon", url: "https://www.rollercoastertycoon.com/"},
-                    {name: "Planet Coaster", url: "https://www.planetcoaster.com/"},
-                    {name: "Zoo Tycoon", url: "https://www.microsoft.com/en-us/store/p/zoo-tycoon/"},
-                    {name: "FarmVille", url: "https://www.farmville.com/"}
-                    // Lisää pelejä tarvittaessa
+                    {name: "Super Mario", url: "https://www.retrogames.cc/arcade-games/super-mario-bros.html", icon: "https://upload.wikimedia.org/wikipedia/commons/1/16/Super_Mario_Bros._box_art.jpg"},
+                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg"},
+                    {name: "Tetris", url: "https://tetris.com/play-tetris", icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg"},
+                    {name: "Flappy Bird", url: "https://flappybird.io/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png"},
+                    {name: "Snake Game", url: "https://playsnake.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png"},
+                    {name: "Space Invaders", url: "https://www.spaceinvadersgame.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg"},
+                    {name: "Asteroids", url: "https://playclassic.games/asteroids/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png"},
+                    {name: "Pong", url: "https://www.ponggame.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png"},
+                    {name: "2048", url: "https://play2048.co/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png"},
+                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png"},
+                    {name: "Angry Birds", url: "https://www.angrybirds.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png"},
+                    {name: "Candy Crush", url: "https://www.candycrushsaga.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Candy_Crush_Saga_logo.png"},
+                    {name: "Bejeweled", url: "https://www.bejeweled.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/Bejeweled_logo.png"},
+                    {name: "Doodle Jump", url: "https://www.doodlejump.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Doodle_Jump_Logo.png"},
+                    {name: "Jetpack Joyride", url: "https://www.jetpackjoyride.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Jetpack_Joyride_logo.png"},
+                    {name: "Fruit Ninja", url: "https://www.fruitninja.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/5/57/Fruit_Ninja_logo.svg"},
+                    {name: "Geometry Dash", url: "https://www.geometrydash.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Geometry_Dash_logo.png"},
+                    {name: "Cut the Rope", url: "https://www.cuttherope.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cut_the_Rope_logo.png"},
+                    {name: "Subway Surfers", url: "https://www.subwaysurfers.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Subway_Surfers_Logo.png"},
+                    {name: "Clash of Clans", url: "https://www.clashofclans.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Clash_of_Clans_logo.png"},
+                    {name: "Minecraft", url: "https://www.minecraft.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/Minecraft_logo.svg"},
+                    {name: "Fortnite", url: "https://www.epicgames.com/fortnite", icon: "https://upload.wikimedia.org/wikipedia/commons/7/77/Fortnite_Logo_2018.svg"},
+                    {name: "PUBG", url: "https://www.pubg.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Pubg_logo.svg"},
+                    {name: "Apex Legends", url: "https://www.ea.com/games/apex-legends", icon: "https://upload.wikimedia.org/wikipedia/commons/9/95/Apex_Legends_logo.svg"},
+                    {name: "Valorant", url: "https://playvalorant.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/Valorant_logo.svg"},
                 ];
 
-                // Lisätään pelit palkkeihin
-                games.forEach((game, index) => {
-                    document.write(`
-                        <div class="grid-item">
-                            <button onclick="showGame('${game.url}')">
-                                ${game.name}
-                            </button>
-                        </div>
-                    `);
+                games.forEach(game => {
+                    const gameButton = document.createElement("div");
+                    gameButton.classList.add("grid-item");
+                    gameButton.innerHTML = `
+                        <button onclick="openGame('${game.url}')">
+                            <img src="${game.icon}" alt="${game.name}">
+                            <span>${game.name}</span>
+                        </button>
+                    `;
+                    document.querySelector(".grid-container").appendChild(gameButton);
                 });
 
-                function showGame(gameUrl) {
-                    const iframe = document.getElementById('game-frame');
-                    iframe.src = gameUrl;
-                    document.getElementById('game-modal').style.display = 'flex';
+                function openGame(url) {
+                    const modal = document.createElement("div");
+                    modal.classList.add("game-iframe-modal");
+                    modal.innerHTML = `
+                        <button class="close-btn" onclick="closeModal()">X</button>
+                        <iframe class="game-iframe" src="${url}" frameborder="0"></iframe>
+                    `;
+                    document.body.appendChild(modal);
+                    modal.style.display = "flex";
                 }
 
                 function closeModal() {
-                    document.getElementById('game-modal').style.display = 'none';
-                    const iframe = document.getElementById('game-frame');
-                    iframe.src = ''; // Tyhjennetään iframe
+                    const modal = document.querySelector(".game-iframe-modal");
+                    modal.style.display = "none";
+                    modal.remove();
                 }
             </script>
-        </div>
-
-        <!-- Pelin iframe modaalina -->
-        <div id="game-modal" class="game-iframe-modal">
-            <button class="close-btn" onclick="closeModal()">X</button>
-            <iframe id="game-frame" class="game-iframe" src=""></iframe>
         </div>
     </main>
 </body>
