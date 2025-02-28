@@ -5,38 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubeGames</title>
     <style>
-        /* Yleinen tyyli */
         body {
-            background-color: #40E0D0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
 
-        /* Header-tyylit */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 10px 20px;
-            background-color: #008080;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.8);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         nav ul {
@@ -47,61 +46,75 @@
             padding: 0;
         }
 
-        nav ul li {
-            display: inline;
-        }
-
         nav ul li a {
             text-decoration: none;
             color: white;
             font-size: 18px;
-            padding: 5px 10px;
-        }
-
-        nav ul li a:hover {
-            background-color: #006666;
+            padding: 8px 15px;
+            transition: 0.3s;
             border-radius: 5px;
         }
 
-        /* Peliruudukko */
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        main {
+            margin-top: 100px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(7, 100px);
-            grid-template-rows: repeat(7, 100px);
-            gap: 10px;
-            margin-top: 80px;
+            grid-template-columns: repeat(7, 120px);
+            grid-template-rows: repeat(7, 120px);
+            gap: 15px;
+            margin-top: 50px;
+            padding-bottom: 50px;
         }
 
         .grid-item {
-            width: 100px;
-            height: 100px;
-            background-color: black;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             font-size: 18px;
             text-align: center;
-            border: 1px solid #ccc;
-            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #ff6b6b, #c0392b);
         }
 
         .grid-item button {
-            background-color: transparent;
+            background: rgba(255, 255, 255, 0.2);
             border: 2px solid white;
             color: white;
             padding: 10px;
             font-size: 14px;
             cursor: pointer;
             border-radius: 5px;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            transition: 0.3s;
         }
 
         .grid-item button:hover {
-            background-color: white;
+            background: white;
             color: black;
         }
     </style>
