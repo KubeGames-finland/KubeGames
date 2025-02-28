@@ -130,6 +130,14 @@
         .grid-container {
             animation: fadeIn 1s ease-in-out;
         }
+
+        .game-iframe {
+            margin-top: 30px;
+            width: 800px;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -146,11 +154,11 @@
     
     <main>
         <div class="grid-container">
-            <!-- Lisää peli 1 -->
+            <!-- Peli 1 (Street Fighter) upotettuna -->
             <div class="grid-item">
-                <button onclick="window.location.href='https://eleanorakh.github.io/street-fighter/'">Street Fighter</button>
+                <button onclick="document.getElementById('game-frame').style.display = 'block'">Street Fighter</button>
             </div>
-
+            
             <!-- Muut pelit -->
             <script>
                 for (let i = 2; i <= 49; i++) {
@@ -158,6 +166,9 @@
                 }
             </script>
         </div>
+
+        <!-- Peli 1 iframe, joka näkyy klikkauksen jälkeen -->
+        <iframe id="game-frame" class="game-iframe" src="https://eleanorakh.github.io/street-fighter/" style="display: none;"></iframe>
     </main>
 </body>
 </html>
