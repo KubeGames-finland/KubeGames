@@ -109,11 +109,12 @@
             cursor: pointer;
             border-radius: 5px;
             transition: 0.3s;
+            width: 100%;
+            height: 100%;
         }
 
         .grid-item button:hover {
-            background: white;
-            color: black;
+            background: rgba(255, 255, 255, 0.5);
         }
 
         @keyframes fadeIn {
@@ -137,6 +138,7 @@
             height: 600px;
             border: none;
             border-radius: 10px;
+            display: none; /* Piilotetaan aluksi */
         }
     </style>
 </head>
@@ -154,21 +156,60 @@
     
     <main>
         <div class="grid-container">
-            <!-- Peli 1 (Street Fighter) upotettuna -->
+            <!-- Peli 1 -->
             <div class="grid-item">
-                <button onclick="document.getElementById('game-frame').style.display = 'block'">Street Fighter</button>
+                <button onclick="document.getElementById('game-frame').src='https://eleanorakh.github.io/street-fighter/'; document.getElementById('game-frame').style.display = 'block'">Street Fighter</button>
             </div>
-            
-            <!-- Muut pelit -->
-            <script>
-                for (let i = 2; i <= 49; i++) {
-                    document.write(`<div class="grid-item"><button onclick="window.location.href='https://example.com/peli${i}'">Peli ${i}</button></div>`);
-                }
-            </script>
+
+            <!-- Peli 2 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://flappybird.io/'; document.getElementById('game-frame').style.display = 'block'">Flappy Bird</button>
+            </div>
+
+            <!-- Peli 3 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://play2048.co/'; document.getElementById('game-frame').style.display = 'block'">2048 Game</button>
+            </div>
+
+            <!-- Peli 4 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://tetris.com/play-tetris'; document.getElementById('game-frame').style.display = 'block'">Tetris</button>
+            </div>
+
+            <!-- Peli 5 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://playsnake.org/'; document.getElementById('game-frame').style.display = 'block'">Snake Game</button>
+            </div>
+
+            <!-- Peli 6 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://www.google.com/search?q=pacman'; document.getElementById('game-frame').style.display = 'block'">Pac-Man</button>
+            </div>
+
+            <!-- Peli 7 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://www.ponggame.org/'; document.getElementById('game-frame').style.display = 'block'">Pong</button>
+            </div>
+
+            <!-- Peli 8 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://playclassic.games/asteroids/'; document.getElementById('game-frame').style.display = 'block'">Asteroids</button>
+            </div>
+
+            <!-- Peli 9 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://www.bubbleshooter.net/'; document.getElementById('game-frame').style.display = 'block'">Bubble Shooter</button>
+            </div>
+
+            <!-- Peli 10 -->
+            <div class="grid-item">
+                <button onclick="document.getElementById('game-frame').src='https://flappybird.io/'; document.getElementById('game-frame').style.display = 'block'">Flappy Bird 2</button>
+            </div>
+
         </div>
 
-        <!-- Peli 1 iframe, joka näkyy klikkauksen jälkeen -->
-        <iframe id="game-frame" class="game-iframe" src="https://eleanorakh.github.io/street-fighter/" style="display: none;"></iframe>
+        <!-- Pelin iframe -->
+        <iframe id="game-frame" class="game-iframe" src=""></iframe>
     </main>
 </body>
 </html>
