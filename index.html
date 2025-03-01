@@ -177,6 +177,12 @@
             color: white;
         }
 
+        .search-container {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            text-align: center;
+        }
+
         .search-container input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -203,13 +209,21 @@
         <nav>
             <ul>
                 <li><a href="#top-rated">Top Rated</a></li>
-                <li><a href="#search">Search</a></li>
+                <li><a href="#" id="searchButton">Search</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Search Section -->
+        <section id="search" class="search-container">
+            <h2>Search Games</h2>
+            <input type="text" id="searchInput" placeholder="Search for a game...">
+            <button onclick="searchGame()">Search</button>
+            <div id="searchResults"></div>
+        </section>
+
         <!-- Top Rated Section -->
         <section id="top-rated" class="top-rated">
             <h2>Top Rated Games</h2>
@@ -233,14 +247,6 @@
                     </button>
                 </div>
             </div>
-        </section>
-
-        <!-- Search Section -->
-        <section id="search" class="search-container">
-            <h2>Search Games</h2>
-            <input type="text" id="searchInput" placeholder="Search for a game...">
-            <button onclick="searchGame()">Search</button>
-            <div id="searchResults"></div>
         </section>
 
         <!-- Contact Us Section -->
@@ -321,6 +327,12 @@
                 });
             }
         }
+
+        // Näyttää/hides search bar
+        document.getElementById("searchButton").onclick = function() {
+            const searchSection = document.querySelector(".search-container");
+            searchSection.style.display = (searchSection.style.display === "none" || searchSection.style.display === "") ? "block" : "none";
+        };
     </script>
 </body>
 
