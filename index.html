@@ -351,6 +351,50 @@
 </body>
 
 </html>
+<style>
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .grid-item {
+        text-align: center;
+        background: #2a9d8f;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+    }
+
+    .grid-item:hover {
+        transform: scale(1.1);
+    }
+
+    .grid-item button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-item img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .grid-item span {
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>
+
 <div class="grid-container">
     <div class="grid-item">
         <button onclick="openGame('2048')">
