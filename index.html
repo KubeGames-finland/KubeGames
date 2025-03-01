@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fi">
 
 <head>
@@ -65,24 +65,6 @@
             background-color: rgba(255, 255, 255, 0.3);
         }
 
-        .contact-us-link {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #ff4b2b;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            z-index: 1100; /* Make sure it's above other content */
-            transition: background-color 0.3s;
-        }
-
-        .contact-us-link:hover {
-            background-color: #ff6b6b;
-        }
-
         main {
             margin-top: 120px;
             width: 90%;
@@ -139,6 +121,54 @@
             background: rgba(255, 255, 255, 0.5);
         }
 
+        /* Kasvatettu logojen kokoa */
+        .grid-item img {
+            width: 70px; /* Aiemmin 50px */
+            height: 70px; /* Aiemmin 50px */
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .game-iframe-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .game-container {
+            width: 80vw;
+            height: 80vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4b2b;
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-btn:hover {
+            background-color: #ff6b6b;
+        }
+
         .contact, .top-rated, .all-games, .search-container {
             margin-top: 40px;
             text-align: left;
@@ -179,8 +209,6 @@
 </head>
 
 <body>
-    <a href="#contact" class="contact-us-link">Contact Us</a>
-
     <header>
         <div class="logo">KubeGames</div>
         <nav>
@@ -221,6 +249,21 @@
                         <span>Pac-Man</span>
                     </button>
                 </div>
+            </div>
+        </section>
+
+        <!-- Added All Games section -->
+        <section id="all-games" class="all-games">
+            <h2>All Games</h2>
+            <div class="grid-container">
+                <!-- List of 49 simple games -->
+                <div class="grid-item">
+                    <button onclick="openGame('2048')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/2048_Icon.png" alt="2048">
+                        <span>2048</span>
+                    </button>
+                </div>
+                <!-- Repeat similar grid items for other 48 games -->
             </div>
         </section>
 
