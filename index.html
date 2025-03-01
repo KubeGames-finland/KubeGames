@@ -170,47 +170,29 @@
             background-color: #ff6b6b;
         }
 
-        /* Top Rated -osio */
-        #top-rated {
-            margin-top: 50px;
+        /* Uudet osiot: */
+        .contact, .top-rated, .search-container {
+            margin-top: 40px;
+            text-align: left;
+            color: white;
         }
 
-        /* Search -osio */
-        #search {
-            margin-top: 50px;
-        }
-
-        #search input {
+        .search-container input[type="text"] {
             padding: 10px;
             font-size: 16px;
-            width: 300px;
+            width: 250px;
+            margin-right: 10px;
             border-radius: 5px;
-            border: none;
         }
 
-        #search button {
-            padding: 10px 20px;
+        .search-container button {
+            padding: 10px;
             font-size: 16px;
-            border-radius: 5px;
+            background-color: #ff416c;
             border: none;
-            background-color: #ff4b2b;
             color: white;
             cursor: pointer;
-            margin-left: 10px;
-        }
-
-        #search button:hover {
-            background-color: #ff6b6b;
-        }
-
-        /* Contact Us -osio */
-        #contact {
-            margin-top: 50px;
-        }
-
-        #contact p {
-            font-size: 18px;
-            margin: 10px 0;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -228,9 +210,9 @@
     </header>
 
     <main>
-        <!-- Top Rated -osio -->
-        <section id="top-rated">
-            <h2>Top Rated</h2>
+        <!-- Top Rated Section -->
+        <section id="top-rated" class="top-rated">
+            <h2>Top Rated Games</h2>
             <div class="grid-container">
                 <div class="grid-item">
                     <button onclick="openGame('flappybird')">
@@ -253,18 +235,18 @@
             </div>
         </section>
 
-        <!-- Search -osio -->
-        <section id="search">
-            <h2>Search</h2>
+        <!-- Search Section -->
+        <section id="search" class="search-container">
+            <h2>Search Games</h2>
             <input type="text" id="searchInput" placeholder="Search for a game...">
             <button onclick="searchGame()">Search</button>
-            <div class="grid-container" id="searchResults"></div>
+            <div id="searchResults"></div>
         </section>
 
-        <!-- Contact Us -osio -->
-        <section id="contact">
+        <!-- Contact Us Section -->
+        <section id="contact" class="contact">
             <h2>Contact Us</h2>
-            <p>Phone: -</p>
+            <p>Phone: 000000</p>
             <p>Email: kubegames.business@outlook.com</p>
             <p>Address: -</p>
             <p>Country: Finland</p>
@@ -280,65 +262,28 @@
     </div>
 
     <script>
-        const games = [
-            { name: 'Flappy Bird', id: 'flappybird', img: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png' },
-            { name: 'Tetris', id: 'tetris', img: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg' },
-            { name: 'Pac-Man', id: 'pacman', img: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg' },
-            { name: 'Snake Game', id: 'snake', img: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png' },
-            { name: 'Pong', id: 'pong', img: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png' },
-            { name: 'Asteroids', id: 'asteroids', img: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png' },
-            { name: 'Space Invaders', id: 'spaceinvaders', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg' },
-            { name: 'Bubble Shooter', id: 'bubble', img: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png' },
-            { name: '2048', id: '2048', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png' },
-            { name: 'Angry Birds', id: 'angrybirds', img: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png' }
-        ];
-
+        // Avaa peli
         function openGame(game) {
             const gameModal = document.getElementById('gameModal');
             const gameContainer = document.getElementById('gameContainer');
+            gameContainer.innerHTML = ''; // Tyhjennetään aiemmat pelit
 
-            // Poistetaan aikaisemmat pelit ja avataan uusi peli
-            gameContainer.innerHTML = '';
-
-            // Pelien iframe-upotukset
             let gameUrl = '';
             switch (game) {
                 case 'flappybird':
-                    gameUrl = 'https://flappybird.io/';  // Suora peli-upotus
+                    gameUrl = 'https://flappybird.io/';
                     break;
                 case 'tetris':
-                    gameUrl = 'https://tetris.com/play-tetris';  // Antamasi Tetris-linkki
+                    gameUrl = 'https://tetris.com/play-tetris';
                     break;
                 case 'pacman':
-                    gameUrl = 'https://www.pacman.com/play/';  // Suora peli-upotus
-                    break;
-                case 'snake':
-                    gameUrl = 'https://playsnake.org/';  // Suora peli-upotus
-                    break;
-                case 'pong':
-                    gameUrl = 'https://www.ponggame.org/';  // Suora peli-upotus
-                    break;
-                case 'asteroids':
-                    gameUrl = 'https://www.classicgamesarcade.com/asteroids/';  // Suora peli-upotus
-                    break;
-                case 'spaceinvaders':
-                    gameUrl = 'https://www.spaceinvadersgame.org/';  // Suora peli-upotus
-                    break;
-                case 'bubble':
-                    gameUrl = 'https://www.bubbleshooter.net/';  // Suora peli-upotus
-                    break;
-                case '2048':
-                    gameUrl = 'https://play2048.co/';  // Antamasi 2048-linkki
-                    break;
-                case 'angrybirds':
-                    gameUrl = 'https://www.angrybirdsgame.com/';  // Suora peli-upotus
+                    gameUrl = 'https://www.pacman.com/play/';
                     break;
                 default:
                     alert('Peli ei löytynyt');
                     return;
             }
 
-            // Upotetaan peli
             const iframe = document.createElement('iframe');
             iframe.src = gameUrl;
             iframe.width = '100%';
@@ -349,33 +294,31 @@
             gameModal.style.display = 'flex';
         }
 
+        // Sulje peli
         function closeModal() {
             const gameModal = document.getElementById('gameModal');
             gameModal.style.display = 'none';
             document.getElementById('gameContainer').innerHTML = '';
         }
 
+        // Haku
         function searchGame() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const searchResults = document.getElementById('searchResults');
-            searchResults.innerHTML = '';
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            results.innerHTML = ''; // Tyhjennetään aiemmat tulokset
 
-            const filteredGames = games.filter(game => game.name.toLowerCase().includes(searchInput));
+            const games = ['flappybird', 'tetris', 'pacman']; // Pelit, joita voi etsiä
 
-            if (filteredGames.length > 0) {
-                filteredGames.forEach(game => {
-                    const gridItem = document.createElement('div');
-                    gridItem.className = 'grid-item';
-                    gridItem.innerHTML = `
-                        <button onclick="openGame('${game.id}')">
-                            <img src="${game.img}" alt="${game.name}">
-                            <span>${game.name}</span>
-                        </button>
-                    `;
-                    searchResults.appendChild(gridItem);
-                });
+            const filteredGames = games.filter(game => game.toLowerCase().includes(query));
+            if (filteredGames.length === 0) {
+                results.innerHTML = '<p>No games found</p>';
             } else {
-                searchResults.innerHTML = '<p>No games found.</p>';
+                filteredGames.forEach(game => {
+                    const button = document.createElement('button');
+                    button.textContent = game.charAt(0).toUpperCase() + game.slice(1);
+                    button.onclick = () => openGame(game);
+                    results.appendChild(button);
+                });
             }
         }
     </script>
