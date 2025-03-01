@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
         body {
-            background: linear-gradient(135deg, #00bcd4, #008c8c); /* Turkoosi tausta */
+            background: linear-gradient(135deg, #00bcd4, #008c8c);
             color: white;
             font-family: 'Rubik', sans-serif;
             margin: 0;
@@ -17,58 +17,6 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 20px 40px;
-            background: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: linear-gradient(45deg, #ffffff, #00aaff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            padding: 10px 18px;
-            transition: 0.3s;
-            border-radius: 5px;
-        }
-
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        main {
-            margin-top: 120px;
-            width: 90%;
-            text-align: center;
         }
 
         .grid-container {
@@ -82,7 +30,7 @@
 
         .grid-item {
             height: 140px;
-            background: linear-gradient(135deg, #00bcd4, #008c8c); /* Turkoosi tausta */
+            background: linear-gradient(135deg, #00bcd4, #008c8c);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -97,7 +45,7 @@
 
         .grid-item:hover {
             transform: scale(1.1);
-            background: linear-gradient(135deg, #00c6c6, #009e9e); /* Vaaleampi turkoosi hover-tila */
+            background: linear-gradient(135deg, #00c6c6, #009e9e);
         }
 
         .grid-item button {
@@ -121,321 +69,65 @@
             background: rgba(255, 255, 255, 0.5);
         }
 
-        /* Kasvatettu logojen kokoa */
         .grid-item img {
-            width: 70px; /* Aiemmin 50px */
-            height: 70px; /* Aiemmin 50px */
+            width: 70px;
+            height: 70px;
             margin-bottom: 10px;
             border-radius: 5px;
         }
-
-        .game-iframe-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .game-container {
-            width: 80vw;
-            height: 80vh;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #ff4b2b;
-            color: white;
-            border: none;
-            font-size: 20px;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .close-btn:hover {
-            background-color: #ff6b6b;
-        }
-
-        .contact, .top-rated, .all-games, .search-container {
-            margin-top: 40px;
-            text-align: left;
-            color: white;
-        }
-
-        .search-container {
-            display: none;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .search-container input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            width: 250px;
-            margin-right: 10px;
-            border-radius: 5px;
-        }
-
-        .search-container button {
-            padding: 10px;
-            font-size: 16px;
-            background-color: #00bcd4; /* Turkoosi väri */
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Added red color for search button */
-        #searchButton {
-            background-color: #ff4b2b;
-            color: white;
-        }
-
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo">KubeGames</div>
-        <nav>
-            <ul>
-                <li><a href="#top-rated">Top Rated</a></li>
-                <li><a href="#" id="searchButton">Search</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
-        <section id="search" class="search-container">
-            <h2>Search Games</h2>
-            <input type="text" id="searchInput" placeholder="Search for a game...">
-            <button onclick="searchGame()">Search</button>
-            <div id="searchResults"></div>
-        </section>
-
-        <section id="top-rated" class="top-rated">
-            <h2>Top Rated Games</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <button onclick="openGame('flappybird')">
-                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/d94f3dc4-bc3a-4f92-88ea-e7cdcb74bde4/d75j4w6-2b9f343e-c5c5-4f87-9cd6-7441c8d97378.png/v1/fill/w_358,h_219,q_80,strp/flappy_bird_avatars_by_chokolathosza_d75j4w6-fullview.jpg" alt="Flappy Bird">
-                        <span>Flappy Bird</span>
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <button onclick="openGame('tetris')">
-                        <img src="https://media.freemalaysiatoday.com/wp-content/uploads/2020/07/tetris-lifestyle-107202009.jpg" alt="Tetris">
-                        <span>Tetris</span>
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <button onclick="openGame('pacman')">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png" alt="Pac-Man">
-                        <span>Pac-Man</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Added All Games section -->
         <section id="all-games" class="all-games">
             <h2>All Games</h2>
             <div class="grid-container">
-                <!-- List of 49 simple games -->
                 <div class="grid-item">
                     <button onclick="openGame('2048')">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/2048_Icon.png" alt="2048">
                         <span>2048</span>
                     </button>
                 </div>
-                <!-- Repeat similar grid items for other 48 games -->
+                <div class="grid-item">
+                    <button onclick="openGame('snake')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Snake_game.png" alt="Snake">
+                        <span>Snake</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('minesweeper')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Minesweeper_Icon.png" alt="Minesweeper">
+                        <span>Minesweeper</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('chess')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Chess_Pieces_Sprite.svg" alt="Chess">
+                        <span>Chess</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('solitaire')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Klondike_Solitaire.png" alt="Solitaire">
+                        <span>Solitaire</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('pong')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Pong.png" alt="Pong">
+                        <span>Pong</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('spaceinvaders')">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/2/22/SpaceInvaders-Gameplay.gif" alt="Space Invaders">
+                        <span>Space Invaders</span>
+                    </button>
+                </div>
             </div>
         </section>
-
-        <section id="contact" class="contact">
-            <h2>Contact Us</h2>
-            <p>Phone: 000000</p>
-            <p>Email: kubegames.business@outlook.com</p>
-            <p>Address: -</p>
-            <p>Country: Finland</p>
-        </section>
     </main>
-
-    <div class="game-iframe-modal" id="gameModal">
-        <button class="close-btn" onclick="closeModal()">X</button>
-        <div class="game-container" id="gameContainer"></div>
-    </div>
-
-    <script>
-        function openGame(game) {
-            const gameModal = document.getElementById('gameModal');
-            const gameContainer = document.getElementById('gameContainer');
-            gameContainer.innerHTML = '';
-
-            let gameUrl = '';
-            switch (game) {
-                case 'flappybird':
-                    gameUrl = 'https://flappybird.io/';
-                    break;
-                case 'tetris':
-                    gameUrl = 'https://tetris.com/play-tetris';
-                    break;
-                case 'pacman':
-                    gameUrl = 'https://www.pacman.com/play/';
-                    break;
-                case '2048':
-                    gameUrl = 'https://play2048.co/';
-                    break;
-                // Add other game URLs similarly
-                default:
-                    alert('Peli ei löytynyt');
-                    return;
-            }
-
-            const iframe = document.createElement('iframe');
-            iframe.src = gameUrl;
-            iframe.width = '100%';
-            iframe.height = '100%';
-            iframe.style.border = 'none';
-            gameContainer.appendChild(iframe);
-
-            gameModal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            const gameModal = document.getElementById('gameModal');
-            gameModal.style.display = 'none';
-            document.getElementById('gameContainer').innerHTML = '';
-        }
-
-        function searchGame() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const results = document.getElementById('searchResults');
-            results.innerHTML = '';
-
-            const games = ['flappybird', 'tetris', 'pacman', '2048']; // Include all your games here
-
-            const filteredGames = games.filter(game => game.toLowerCase().includes(query));
-            if (filteredGames.length === 0) {
-                results.innerHTML = '<p>No games found</p>';
-            } else {
-                filteredGames.forEach(game => {
-                    const button = document.createElement('button');
-                    button.textContent = game.charAt(0).toUpperCase() + game.slice(1);
-                    button.onclick = () => openGame(game);
-                    results.appendChild(button);
-                });
-            }
-        }
-
-        document.getElementById("searchButton").onclick = function() {
-            const searchSection = document.querySelector(".search-container");
-            searchSection.style.display = (searchSection.style.display === "none" || searchSection.style.display === "") ? "block" : "none";
-        };
-    </script>
 </body>
 
 </html>
-<style>
-    .grid-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .grid-item {
-        text-align: center;
-        background: #2a9d8f;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s;
-    }
-
-    .grid-item:hover {
-        transform: scale(1.1);
-    }
-
-    .grid-item button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .grid-item img {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 10px;
-    }
-
-    .grid-item span {
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-    }
-</style>
-
-<div class="grid-container">
-    <div class="grid-item">
-        <button onclick="openGame('2048')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/2048_Icon.png" alt="2048">
-            <span>2048</span>
-        </button>
-    </div>
-    <div class="grid-item">
-        <button onclick="openGame('snake')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Snake_game.png" alt="Snake">
-            <span>Snake</span>
-        </button>
-    </div>
-    <div class="grid-item">
-        <button onclick="openGame('minesweeper')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Minesweeper_Icon.png" alt="Minesweeper">
-            <span>Minesweeper</span>
-        </button>
-    </div>
-    <div class="grid-item">
-        <button onclick="openGame('chess')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Chess_Pieces_Sprite.svg" alt="Chess">
-            <span>Chess</span>
-        </button>
-    </div>
-    <div class="grid-item">
-        <button onclick="openGame('solitaire')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Klondike_Solitaire.png" alt="Solitaire">
-            <span>Solitaire</span>
-        </button>
-    </div>
-    <div class="grid-item">
-        <button onclick="openGame('pong')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Pong.png" alt="Pong">
-            <span>Pong</span>
-        </button>
-    </div>
-    <div class="grid-item">
-        <button onclick="openGame('spaceinvaders')">
-            <img src="https://upload.wikimedia.org/wikipedia/en/2/22/SpaceInvaders-Gameplay.gif" alt="Space Invaders">
-            <span>Space Invaders</span>
-        </button>
-    </div>
-</div>
