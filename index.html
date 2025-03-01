@@ -39,7 +39,7 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 3px;
-            background: linear-gradient(45deg, #ffffff, #00aaff);
+            background: linear-gradient(45deg, #ffffff, #ff416c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -82,7 +82,7 @@
 
         .grid-item {
             height: 140px;
-            background: linear-gradient(135deg, #00bcd4, #008c8c); /* Turkoosi tausta */
+            background: linear-gradient(135deg, #ffffff, #ff416c, #00bcd4); /* Liukuvärit: valkoinen, punainen, turkoosi */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -97,7 +97,7 @@
 
         .grid-item:hover {
             transform: scale(1.1);
-            background: linear-gradient(135deg, #00c6c6, #009e9e); /* Vaaleampi turkoosi hover-tila */
+            background: linear-gradient(135deg, #ff416c, #ff4b2b, #ff8e3c); /* Elävämmät värit hover-tilassa */
         }
 
         .grid-item button {
@@ -168,10 +168,11 @@
             background-color: #ff6b6b;
         }
 
-        .contact, .top-rated, .all-games, .search-container {
+        .contact, .top-rated, .search-container {
             margin-top: 40px;
             text-align: left;
             color: white;
+            display: none; /* Initially hidden */
         }
 
         .search-container {
@@ -197,13 +198,6 @@
             cursor: pointer;
             border-radius: 5px;
         }
-
-        /* Added red color for search button */
-        #searchButton {
-            background-color: #ff4b2b;
-            color: white;
-        }
-
     </style>
 </head>
 
@@ -212,9 +206,9 @@
         <div class="logo">KubeGames</div>
         <nav>
             <ul>
-                <li><a href="#top-rated">Top Rated</a></li>
+                <li><a href="#" id="topRatedButton">Top Rated</a></li>
                 <li><a href="#" id="searchButton">Search</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#" id="contactButton">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -251,20 +245,6 @@
             </div>
         </section>
 
-        <!-- Added All Games section -->
-        <section id="all-games" class="all-games">
-            <h2>All Games</h2>
-            <div class="grid-container">
-                <!-- List of 49 simple games -->
-                <div class="grid-item">
-                    <button onclick="openGame('2048')">
-                        <span>2048</span>
-                    </button>
-                </div>
-                <!-- Repeat similar grid items for other 48 games -->
-            </div>
-        </section>
-
         <section id="contact" class="contact">
             <h2>Contact Us</h2>
             <p>Phone: 000000</p>
@@ -296,10 +276,6 @@
                 case 'pacman':
                     gameUrl = 'https://www.pacman.com/play/';
                     break;
-                case '2048':
-                    gameUrl = 'https://play2048.co/';
-                    break;
-                // Add other game URLs similarly
                 default:
                     alert('Peli ei löytynyt');
                     return;
@@ -326,7 +302,7 @@
             const results = document.getElementById('searchResults');
             results.innerHTML = '';
 
-            const games = ['flappybird', 'tetris', 'pacman', '2048']; // Include all your games here
+            const games = ['flappybird', 'tetris', 'pacman'];
 
             const filteredGames = games.filter(game => game.toLowerCase().includes(query));
             if (filteredGames.length === 0) {
@@ -345,7 +321,18 @@
             const searchSection = document.querySelector(".search-container");
             searchSection.style.display = (searchSection.style.display === "none" || searchSection.style.display === "") ? "block" : "none";
         };
+
+        document.getElementById("topRatedButton").onclick = function() {
+            const topRatedSection = document.querySelector(".top-rated");
+            topRatedSection.style.display = (topRatedSection.style.display === "none" || topRatedSection.style.display === "") ? "block" : "none";
+        };
+
+        document.getElementById("contactButton").onclick = function() {
+            const contactSection = document.querySelector(".contact");
+            contactSection.style.display = (contactSection.style.display === "none" || contactSection.style.display === "") ? "block" : "none";
+        };
     </script>
 </body>
 
 </html>
+
