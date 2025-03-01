@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubeGames</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
-
         body {
             background: linear-gradient(135deg, #00bcd4, #008c8c); /* Turkoosi tausta */
             color: white;
@@ -203,143 +203,149 @@
             background-color: #ff4b2b;
             color: white;
         }
+
     </style>
 </head>
+
 <body>
+    <header>
+        <div class="logo">KubeGames</div>
+        <nav>
+            <ul>
+                <li><a href="#top-rated">Top Rated</a></li>
+                <li><a href="#" id="searchButton">Search</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <div class="logo">KubeGames</div>
-    <nav>
-        <ul>
-            <li><a href="#top-rated">Top Rated</a></li>
-            <li><a href="#" id="searchButton">Search</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
-</header>
+    <main>
+        <section id="search" class="search-container">
+            <h2>Search Games</h2>
+            <input type="text" id="searchInput" placeholder="Search for a game...">
+            <button onclick="searchGame()">Search</button>
+            <div id="searchResults"></div>
+        </section>
 
-<main>
-    <section id="search" class="search-container">
-        <h2>Search Games</h2>
-        <input type="text" id="searchInput" placeholder="Search for a game...">
-        <button onclick="searchGame()">Search</button>
-        <div id="searchResults"></div>
-    </section>
-
-    <section id="top-rated" class="top-rated">
-        <h2>Top Rated Games</h2>
-        <div class="grid-container">
-            <div class="grid-item">
-                <button onclick="openGame('flappybird')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png" alt="Flappy Bird">
-                    <span>Flappy Bird</span>
-                </button>
+        <section id="top-rated" class="top-rated">
+            <h2>Top Rated Games</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <button onclick="openGame('flappybird')">
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/d94f3dc4-bc3a-4f92-88ea-e7cdcb74bde4/d75j4w6-2b9f343e-c5c5-4f87-9cd6-7441c8d97378.png/v1/fill/w_358,h_219,q_80,strp/flappy_bird_avatars_by_chokolathosza_d75j4w6-fullview.jpg" alt="Flappy Bird">
+                        <span>Flappy Bird</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('tetris')">
+                        <img src="https://live.staticflickr.com/65535/53438691343_7503ee15ab_b.jpg" alt="Tetris">
+                        <span>Tetris</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('pacman')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg" alt="Pac-Man">
+                        <span>Pac-Man</span>
+                    </button>
+                </div>
             </div>
-            <div class="grid-item">
-                <button onclick="openGame('tetris')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg" alt="Tetris">
-                    <span>Tetris</span>
-                </button>
+        </section>
+
+        <!-- Added All Games section -->
+        <section id="all-games" class="all-games">
+            <h2>All Games</h2>
+            <div class="grid-container">
+                <!-- List of 49 simple games -->
+                <div class="grid-item">
+                    <button onclick="openGame('2048')">
+                        <span>2048</span>
+                    </button>
+                </div>
+                <!-- Repeat similar grid items for other 48 games -->
             </div>
-            <div class="grid-item">
-                <button onclick="openGame('pacman')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg" alt="Pac-Man">
-                    <span>Pac-Man</span>
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Added All Games section -->
-    <section id="all-games" class="all-games">
-        <h2>All Games</h2>
-        <div class="grid-container">
-            <!-- List of 49 simple games -->
-            <div class="grid-item">
-                <button onclick="openGame('2048')">
-                    <span>2048</span>
-                </button>
-            </div>
-            <!-- Repeat similar grid items for other 48 games -->
-        </div>
-    </section>
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>Phone: 000000</p>
+            <p>Email: kubegames.business@outlook.com</p>
+            <p>Address: -</p>
+            <p>Country: Finland</p>
+        </section>
+    </main>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Phone: 000000</p>
-        <p>Email: kubegames.business@outlook.com</p>
-        <p>Address: -</p>
-        <p>Country: Finland</p>
-    </section>
-</main>
+    <div class="game-iframe-modal" id="gameModal">
+        <button class="close-btn" onclick="closeModal()">X</button>
+        <div class="game-container" id="gameContainer"></div>
+    </div>
 
-<div class="game-iframe-modal" id="gameModal">
-    <button class="close-btn" onclick="closeModal()">X</button>
-    <div class="game-container" id="gameContainer"></div>
-</div>
+    <script>
+        function openGame(game) {
+            const gameModal = document.getElementById('gameModal');
+            const gameContainer = document.getElementById('gameContainer');
+            gameContainer.innerHTML = '';
 
-<script>
-    function openGame(game) {
-        const gameModal = document.getElementById('gameModal');
-        const gameContainer = document.getElementById('gameContainer');
-        gameContainer.innerHTML = '';
-        let gameUrl = '';
-        switch (game) {
-            case 'flappybird':
-                gameUrl = 'https://flappybird.io/';
-                break;
-            case 'tetris':
-                gameUrl = 'https://tetris.com/play-tetris';
-                break;
-            case 'pacman':
-                gameUrl = 'https://www.pacman.com/play/';
-                break;
-            case '2048':
-                gameUrl = 'https://play2048.co/';
-                break;
-            // Add other game URLs similarly
-            default:
-                alert('Peli ei löytynyt');
-                return;
+            let gameUrl = '';
+            switch (game) {
+                case 'flappybird':
+                    gameUrl = 'https://flappybird.io/';
+                    break;
+                case 'tetris':
+                    gameUrl = 'https://tetris.com/play-tetris';
+                    break;
+                case 'pacman':
+                    gameUrl = 'https://www.pacman.com/play/';
+                    break;
+                case '2048':
+                    gameUrl = 'https://play2048.co/';
+                    break;
+                // Add other game URLs similarly
+                default:
+                    alert('Peli ei löytynyt');
+                    return;
+            }
+
+            const iframe = document.createElement('iframe');
+            iframe.src = gameUrl;
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = 'none';
+            gameContainer.appendChild(iframe);
+
+            gameModal.style.display = 'flex';
         }
-        const iframe = document.createElement('iframe');
-        iframe.src = gameUrl;
-        iframe.width = '100%';
-        iframe.height = '100%';
-        iframe.style.border = 'none';
-        gameContainer.appendChild(iframe);
-        gameModal.style.display = 'flex';
-    }
 
-    function closeModal() {
-        const gameModal = document.getElementById('gameModal');
-        gameModal.style.display = 'none';
-        document.getElementById('gameContainer').innerHTML = '';
-    }
-
-    function searchGame() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        const results = document.getElementById('searchResults');
-        results.innerHTML = '';
-        const games = ['flappybird', 'tetris', 'pacman', '2048']; // Include all your games here
-        const filteredGames = games.filter(game => game.toLowerCase().includes(query));
-        if (filteredGames.length === 0) {
-            results.innerHTML = '<p>No games found</p>';
-        } else {
-            filteredGames.forEach(game => {
-                const button = document.createElement('button');
-                button.textContent = game.charAt(0).toUpperCase() + game.slice(1);
-                button.onclick = () => openGame(game);
-                results.appendChild(button);
-            });
+        function closeModal() {
+            const gameModal = document.getElementById('gameModal');
+            gameModal.style.display = 'none';
+            document.getElementById('gameContainer').innerHTML = '';
         }
-    }
 
-    document.getElementById("searchButton").onclick = function() {
-        const searchSection = document.querySelector(".search-container");
-        searchSection.style.display = (searchSection.style.display === "none" || searchSection.style.display === "") ? "block" : "none";
-    };
-</script>
+        function searchGame() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            results.innerHTML = '';
 
+            const games = ['flappybird', 'tetris', 'pacman', '2048']; // Include all your games here
+
+            const filteredGames = games.filter(game => game.toLowerCase().includes(query));
+            if (filteredGames.length === 0) {
+                results.innerHTML = '<p>No games found</p>';
+            } else {
+                filteredGames.forEach(game => {
+                    const button = document.createElement('button');
+                    button.textContent = game.charAt(0).toUpperCase() + game.slice(1);
+                    button.onclick = () => openGame(game);
+                    results.appendChild(button);
+                });
+            }
+        }
+
+        document.getElementById("searchButton").onclick = function() {
+            const searchSection = document.querySelector(".search-container");
+            searchSection.style.display = (searchSection.style.display === "none" || searchSection.style.display === "") ? "block" : "none";
+        };
+    </script>
 </body>
+
 </html>
