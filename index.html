@@ -1,595 +1,582 @@
-  <!DOCTYPE html> 
+<!DOCTYPE html>
 
-<html lang="fi"> 
+<html lang="fi">
 
-<head> 
+<head>
 
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KubeGames</title> 
+    <title>KubeGames</title>
 
-    <style> 
+    <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
-         
+        body {
 
-        body { 
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
 
-            background: linear-gradient(135deg, #1a1a2e, #16213e); 
+            color: white;
 
-            color: white; 
+            font-family: 'Rubik', sans-serif;
 
-            font-family: 'Rubik', sans-serif; 
+            margin: 0;
 
-            margin: 0; 
+            padding: 0;
 
-            padding: 0; 
+            display: flex;
 
-            display: flex; 
+            flex-direction: column;
 
-            flex-direction: column; 
+            align-items: center;
 
-            align-items: center; 
+            overflow-x: hidden;
 
-            overflow-x: hidden; 
+        }
 
-        } 
+        header {
 
-  
+            display: flex;
 
-        header { 
+            justify-content: space-between;
 
-            display: flex; 
+            align-items: center;
 
-            justify-content: space-between; 
+            width: 100%;
 
-            align-items: center; 
+            padding: 20px 40px;
 
-            width: 100%; 
+            background: rgba(0, 0, 0, 0.9);
 
-            padding: 20px 40px; 
+            position: fixed;
 
-            background: rgba(0, 0, 0, 0.9); 
+            top: 0;
 
-            position: fixed; 
+            left: 0;
 
-            top: 0; 
+            right: 0;
 
-            left: 0; 
+            z-index: 1000;
 
-            right: 0; 
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
 
-            z-index: 1000; 
+        }
 
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7); 
+        .logo {
 
-        } 
+            font-size: 32px;
 
-  
+            font-weight: bold;
 
-        .logo { 
+            text-transform: uppercase;
 
-            font-size: 32px; 
+            letter-spacing: 3px;
 
-            font-weight: bold; 
+            background: linear-gradient(45deg, #ffffff, #00aaff);
 
-            text-transform: uppercase; 
+            -webkit-background-clip: text;
 
-            letter-spacing: 3px; 
+            -webkit-text-fill-color: transparent;
 
-            background: linear-gradient(45deg, #ffffff, #00aaff); 
+        }
 
-            -webkit-background-clip: text; 
+        nav ul {
 
-            -webkit-text-fill-color: transparent; 
+            list-style: none;
 
-        } 
+            display: flex;
 
-  
+            gap: 25px;
 
-        nav ul { 
+            margin: 0;
 
-            list-style: none; 
+            padding: 0;
 
-            display: flex; 
+        }
 
-            gap: 25px; 
+        nav ul li a {
 
-            margin: 0; 
+            text-decoration: none;
 
-            padding: 0; 
+            color: white;
 
-        } 
+            font-size: 18px;
 
-  
+            padding: 10px 18px;
 
-        nav ul li a { 
+            transition: 0.3s;
 
-            text-decoration: none; 
+            border-radius: 5px;
 
-            color: white; 
+        }
 
-            font-size: 18px; 
+        nav ul li a:hover {
 
-            padding: 10px 18px; 
+            background-color: rgba(255, 255, 255, 0.3);
 
-            transition: 0.3s; 
+        }
 
-            border-radius: 5px; 
+        main {
 
-        } 
+            margin-top: 120px;
 
-  
+            width: 90%;
 
-        nav ul li a:hover { 
+            text-align: center;
 
-            background-color: rgba(255, 255, 255, 0.3); 
+        }
 
-        } 
+        .grid-container {
 
-  
+            display: grid;
 
-        main { 
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 
-            margin-top: 120px; 
+            gap: 20px;
 
-            width: 90%; 
+            margin-top: 50px;
 
-            text-align: center; 
+            width: 90%;
 
-        } 
+            padding-bottom: 50px;
 
-  
+        }
 
-        .grid-container { 
+        .grid-item {
 
-            display: grid; 
+            height: 140px;
 
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
 
-            gap: 20px; 
+            display: flex;
 
-            margin-top: 50px; 
+            justify-content: center;
 
-            width: 90%; 
+            align-items: center;
 
-            padding-bottom: 50px; 
+            color: white;
 
-        } 
+            font-size: 18px;
 
-  
+            text-align: center;
 
-        .grid-item { 
+            border-radius: 10px;
 
-            height: 140px; 
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
-            background: linear-gradient(135deg, #ff416c, #ff4b2b); 
+            transition: transform 0.3s, background 0.3s;
 
-            display: flex; 
+            position: relative;
 
-            justify-content: center; 
+        }
 
-            align-items: center; 
+        .grid-item:hover {
 
-            color: white; 
+            transform: scale(1.1);
 
-            font-size: 18px; 
+            background: linear-gradient(135deg, #ff6b6b, #ff3e3e);
 
-            text-align: center; 
+        }
 
-            border-radius: 10px; 
+        .grid-item button {
 
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); 
+            background: rgba(255, 255, 255, 0.2);
 
-            transition: transform 0.3s, background 0.3s; 
+            border: 2px solid white;
 
-            position: relative; 
+            color: white;
 
-        } 
+            padding: 10px;
 
-  
+            font-size: 16px;
 
-        .grid-item:hover { 
+            cursor: pointer;
 
-            transform: scale(1.1); 
+            border-radius: 5px;
 
-            background: linear-gradient(135deg, #ff6b6b, #ff3e3e); 
+            transition: 0.3s;
 
-        } 
+            width: 100%;
 
-  
+            height: 100%;
 
-        .grid-item button { 
+            display: flex;
 
-            background: rgba(255, 255, 255, 0.2); 
+            justify-content: center;
 
-            border: 2px solid white; 
+            align-items: center;
 
-            color: white; 
+            flex-direction: column;
 
-            padding: 10px; 
+        }
 
-            font-size: 16px; 
+        .grid-item button:hover {
 
-            cursor: pointer; 
+            background: rgba(255, 255, 255, 0.5);
 
-            border-radius: 5px; 
+        }
 
-            transition: 0.3s; 
+        .grid-item img {
 
-            width: 100%; 
+            width: 50px;
 
-            height: 100%; 
+            height: 50px;
 
-            display: flex; 
+            margin-bottom: 10px;
 
-            justify-content: center; 
+            border-radius: 5px;
 
-            align-items: center; 
+        }
 
-            flex-direction: column; 
+        @keyframes fadeIn {
 
-        } 
+            from {
 
-  
+                opacity: 0;
 
-        .grid-item button:hover { 
+                transform: translateY(-20px);
 
-            background: rgba(255, 255, 255, 0.5); 
+            }
 
-        } 
+            to {
 
-  
+                opacity: 1;
 
-        .grid-item img { 
+                transform: translateY(0);
 
-            width: 50px;  /* Kuvakkeen leveys */ 
+            }
 
-            height: 50px; /* Kuvakkeen korkeus */ 
+        }
 
-            margin-bottom: 10px; 
+        .grid-container {
 
-            border-radius: 5px; 
+            animation: fadeIn 1s ease-in-out;
 
-        } 
+        }
 
-  
+        /* Pelin iframe modaalina */
 
-        @keyframes fadeIn { 
+        .game-iframe-modal {
 
-            from { 
+            display: none;
 
-                opacity: 0; 
+            position: fixed;
 
-                transform: translateY(-20px); 
+            top: 0;
 
-            } 
+            left: 0;
 
-            to { 
+            width: 100vw;
 
-                opacity: 1; 
+            height: 100vh;
 
-                transform: translateY(0); 
+            background: rgba(0, 0, 0, 0.8);
 
-            } 
+            z-index: 2000;
 
-        } 
+            justify-content: center;
 
-  
+            align-items: center;
 
-        .grid-container { 
+            flex-direction: column;
 
-            animation: fadeIn 1s ease-in-out; 
+        }
 
-        } 
+        .game-container {
 
-  
+            width: 80vw;
 
-        /* Pelin iframe modaalina */ 
+            height: 80vh;
 
-        .game-iframe-modal { 
+            position: relative;
 
-            display: none; 
+        }
 
-            position: fixed; 
+        /* Sulkemisnappi */
 
-            top: 0; 
+        .close-btn {
 
-            left: 0; 
+            position: absolute;
 
-            width: 100vw; 
+            top: 20px;
 
-            height: 100vh; 
+            right: 20px;
 
-            background: rgba(0, 0, 0, 0.8); 
+            background-color: #ff4b2b;
 
-            z-index: 2000; 
+            color: white;
 
-            justify-content: center; 
+            border: none;
 
-            align-items: center; 
+            font-size: 20px;
 
-            flex-direction: column; 
+            padding: 10px 15px;
 
-        } 
+            cursor: pointer;
 
-  
+            border-radius: 5px;
 
-        .game-iframe { 
+        }
 
-            width: 80vw; 
+        .close-btn:hover {
 
-            height: 80vh; 
+            background-color: #ff6b6b;
 
-            border: none; 
+        }
 
-            border-radius: 10px; 
+    </style>
 
-        } 
+</head>
 
-  
+<body>
 
-        /* Sulkemisnappi */ 
+    <header>
 
-        .close-btn { 
+        <div class="logo">KubeGames</div>
 
-            position: absolute; 
+        <nav>
 
-            top: 20px; 
+            <ul>
 
-            right: 20px; 
+                <li><a href="#top-rated">Top Rated</a></li>
 
-            background-color: #ff4b2b; 
+                <li><a href="#search">Search</a></li>
 
-            color: white; 
+                <li><a href="#contact">Contact Us</a></li>
 
-            border: none; 
+            </ul>
 
-            font-size: 20px; 
+        </nav>
 
-            padding: 10px 15px; 
+    </header>
 
-            cursor: pointer; 
+    <main>
 
-            border-radius: 5px; 
+        <div class="grid-container">
 
-        } 
+            <!-- Pelit -->
 
-  
+            <div class="grid-item">
+                <button onclick="openGame('flappybird')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png" alt="Flappy Bird">
+                    <span>Flappy Bird</span>
+                </button>
+            </div>
 
-        .close-btn:hover { 
+            <div class="grid-item">
+                <button onclick="openGame('tetris')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg" alt="Tetris">
+                    <span>Tetris</span>
+                </button>
+            </div>
 
-            background-color: #ff6b6b; 
+            <div class="grid-item">
+                <button onclick="openGame('pacman')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg" alt="Pac-Man">
+                    <span>Pac-Man</span>
+                </button>
+            </div>
 
-        } 
+            <div class="grid-item">
+                <button onclick="openGame('snake')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png" alt="Snake">
+                    <span>Snake Game</span>
+                </button>
+            </div>
 
-    </style> 
+            <div class="grid-item">
+                <button onclick="openGame('pong')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png" alt="Pong">
+                    <span>Pong</span>
+                </button>
+            </div>
 
-</head> 
+            <div class="grid-item">
+                <button onclick="openGame('asteroids')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png" alt="Asteroids">
+                    <span>Asteroids</span>
+                </button>
+            </div>
 
-<body> 
+            <div class="grid-item">
+                <button onclick="openGame('spaceinvaders')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg" alt="Space Invaders">
+                    <span>Space Invaders</span>
+                </button>
+            </div>
 
-    <header> 
+            <div class="grid-item">
+                <button onclick="openGame('bubble')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png" alt="Bubble Shooter">
+                    <span>Bubble Shooter</span>
+                </button>
+            </div>
 
-        <div class="logo">KubeGames</div> 
+            <div class="grid-item">
+                <button onclick="openGame('2048')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png" alt="2048">
+                    <span>2048</span>
+                </button>
+            </div>
 
-        <nav> 
+            <div class="grid-item">
+                <button onclick="openGame('angrybirds')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png" alt="Angry Birds">
+                    <span>Angry Birds</span>
+                </button>
+            </div>
 
-            <ul> 
+        </div>
 
-                <li><a href="#top-rated">Top Rated</a></li> 
+    </main>
 
-                <li><a href="#search">Search</a></li> 
+    <!-- Pelin modal -->
+    <div class="game-iframe-modal" id="gameModal">
+        <button class="close-btn" onclick="closeModal()">X</button>
+        <div class="game-container" id="gameContainer"></div>
+    </div>
 
-                <li><a href="#contact">Contact Us</a></li> 
+    <script>
 
-            </ul> 
+        function openGame(game) {
 
-        </nav> 
+            const gameModal = document.getElementById('gameModal');
+            const gameContainer = document.getElementById('gameContainer');
 
-    </header> 
+            // Pelit
+            const games = {
+                flappybird: startFlappyBird,
+                tetris: startTetris,
+                pacman: startPacMan,
+                snake: startSnakeGame,
+                pong: startPong,
+                asteroids: startAsteroids,
+                spaceinvaders: startSpaceInvaders,
+                bubble: startBubbleShooter,
+                '2048': start2048,
+                angrybirds: startAngryBirds
+            };
 
-     
+            // Käynnistetään peli
+            if (games[game]) {
+                gameContainer.innerHTML = `<canvas id="${game}Canvas" width="800" height="600"></canvas>`;
+                games[game]();
+            }
 
-    <main> 
+            gameModal.style.display = 'flex';
+        }
 
-        <div class="grid-container"> 
+        function closeModal() {
+            const gameModal = document.getElementById('gameModal');
+            gameModal.style.display = 'none';
+            document.getElementById('gameContainer').innerHTML = '';
+        }
 
-            <!-- Pelit --> 
+        // Placeholder pelit
+        function startFlappyBird() {
+            const canvas = document.getElementById('flappybirdCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#00F';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Flappy Bird", canvas.width / 2 - 100, canvas.height / 2);
+        }
 
-            <script> 
+        function startTetris() {
+            const canvas = document.getElementById('tetrisCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#0F0';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Tetris", canvas.width / 2 - 50, canvas.height / 2);
+        }
 
-                const games = [ 
+        function startPacMan() {
+            const canvas = document.getElementById('pacmanCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#FFD700';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "black";
+            ctx.fillText("Pac-Man", canvas.width / 2 - 80, canvas.height / 2);
+        }
 
-                    {name: "Super Mario", url: "https://www.retrogames.cc/arcade-games/super-mario-bros.html", icon: "https://upload.wikimedia.org/wikipedia/commons/1/16/Super_Mario_Bros._box_art.jpg"}, 
+        function startSnakeGame() {
+            const canvas = document.getElementById('snakeCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#008000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Snake Game", canvas.width / 2 - 90, canvas.height / 2);
+        }
 
-                    {name: "Pac-Man", url: "https://www.google.com/search?q=pacman", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg"}, 
+        function startPong() {
+            const canvas = document.getElementById('pongCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Pong", canvas.width / 2 - 30, canvas.height / 2);
+        }
 
-                    {name: "Tetris", url: "https://tetris.com/play-tetris", icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg"}, 
+        function startAsteroids() {
+            const canvas = document.getElementById('asteroidsCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#808080';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Asteroids", canvas.width / 2 - 80, canvas.height / 2);
+        }
 
-                    {name: "Flappy Bird", url: "https://flappybird.io/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png"}, 
+        function startSpaceInvaders() {
+            const canvas = document.getElementById('spaceinvadersCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#8B0000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Space Invaders", canvas.width / 2 - 120, canvas.height / 2);
+        }
 
-                    {name: "Snake Game", url: "https://playsnake.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png"}, 
+        function startBubbleShooter() {
+            const canvas = document.getElementById('bubbleCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#4682B4';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Bubble Shooter", canvas.width / 2 - 120, canvas.height / 2);
+        }
 
-                    {name: "Space Invaders", url: "https://www.spaceinvadersgame.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg"}, 
+        function start2048() {
+            const canvas = document.getElementById('2048Canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#FFD700';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "black";
+            ctx.fillText("2048", canvas.width / 2 - 50, canvas.height / 2);
+        }
 
-                    {name: "Asteroids", url: "https://playclassic.games/asteroids/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png"}, 
+        function startAngryBirds() {
+            const canvas = document.getElementById('angrybirdsCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#FF6347';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Angry Birds", canvas.width / 2 - 90, canvas.height / 2);
+        }
 
-                    {name: "Pong", url: "https://www.ponggame.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png"}, 
+    </script>
 
-                    {name: "2048", url: "https://play2048.co/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png"}, 
-
-                    {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png"}, 
-
-                    {name: "Angry Birds", url: "https://www.angrybirds.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png"}, 
-
-                    {name: "Candy Crush", url: "https://www.candycrushsaga.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Candy_Crush_Saga_logo.png"}, 
-
-                    {name: "Bejeweled", url: "https://www.bejeweled.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/Bejeweled_logo.png"}, 
-
-                    {name: "Doodle Jump", url: "https://www.doodlejump.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Doodle_Jump_Logo.png"}, 
-
-                    {name: "Jetpack Joyride", url: "https://www.jetpackjoyride.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Jetpack_Joyride_logo.png"}, 
-
-                    {name: "Fruit Ninja", url: "https://www.fruitninja.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/5/57/Fruit_Ninja_logo.svg"}, 
-
-                    {name: "Geometry Dash", url: "https://www.geometrydash.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Geometry_Dash_logo.png"}, 
-
-                    {name: "Cut the Rope", url: "https://www.cuttherope.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cut_the_Rope_logo.png"}, 
-
-                    {name: "Subway Surfers", url: "https://www.subwaysurfers.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Subway_Surfers_Logo.png"}, 
-
-                    {name: "Clash of Clans", url: "https://www.clashofclans.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Clash_of_Clans_logo.png"}, 
-
-                    {name: "Minecraft", url: "https://www.minecraft.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/Minecraft_logo.svg"}, 
-
-                    {name: "Fortnite", url: "https://www.epicgames.com/fortnite", icon: "https://upload.wikimedia.org/wikipedia/commons/7/77/Fortnite_Logo_2018.svg"}, 
-
-                    {name: "PUBG", url: "https://www.pubg.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Pubg_logo.svg"}, 
-
-                    {name: "Apex Legends", url: "https://www.ea.com/games/apex-legends", icon: "https://upload.wikimedia.org/wikipedia/commons/9/95/Apex_Legends_logo.svg"}, 
-
-                    {name: "Valorant", url: "https://playvalorant.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/Valorant_logo.svg"}, 
-
-                ]; 
-
-  
-
-                games.forEach(game => { 
-
-                    const gameButton = document.createElement("div"); 
-
-                    gameButton.classList.add("grid-item"); 
-
-                    gameButton.innerHTML = ` 
-
-                        <button onclick="openGame('${game.url}')"> 
-
-                            <img src="${game.icon}" alt="${game.name}"> 
-
-                            <span>${game.name}</span> 
-
-                        </button> 
-
-                    `; 
-
-                    document.querySelector(".grid-container").appendChild(gameButton); 
-
-                }); 
-
-  
-
-                function openGame(url) { 
-
-                    const modal = document.createElement("div"); 
-
-                    modal.classList.add("game-iframe-modal"); 
-
-                    modal.innerHTML = ` 
-
-                        <button class="close-btn" onclick="closeModal()">X</button> 
-
-                        <iframe class="game-iframe" src="${url}" frameborder="0"></iframe> 
-
-                    `; 
-
-                    document.body.appendChild(modal); 
-
-                    modal.style.display = "flex"; 
-
-                } 
-
-  
-
-                function closeModal() { 
-
-                    const modal = document.querySelector(".game-iframe-modal"); 
-
-                    modal.style.display = "none"; 
-
-                    modal.remove(); 
-
-                } 
-
-            </script> 
-
-        </div> 
-
-    </main> 
-
-</body> 
+</body>
 
 </html>
-<script>
-    const games = [
-        {name: "Super Mario", url: "https://www.retrogames.cc/arcade-games/super-mario-bros.html", icon: "https://upload.wikimedia.org/wikipedia/commons/1/16/Super_Mario_Bros._box_art.jpg"},
-        {name: "Pac-Man", url: "https://www.google.com/search?q=pacman", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg"},
-        {name: "Tetris", url: "https://tetris.com/play-tetris", icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg"},
-        {name: "Flappy Bird", url: "https://flappybird.io/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png"},
-        {name: "Snake Game", url: "https://playsnake.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png"},
-        {name: "Space Invaders", url: "https://www.spaceinvadersgame.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg"},
-        {name: "Asteroids", url: "https://playclassic.games/asteroids/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png"},
-        {name: "Pong", url: "https://www.ponggame.org/", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png"},
-        {name: "2048", url: "https://play2048.co/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png"},
-        {name: "Bubble Shooter", url: "https://www.bubbleshooter.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png"},
-        {name: "Angry Birds", url: "https://www.angrybirds.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png"},
-        {name: "Candy Crush", url: "https://www.candycrushsaga.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Candy_Crush_Saga_logo.png"},
-        {name: "Bejeweled", url: "https://www.bejeweled.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/Bejeweled_logo.png"},
-        {name: "Doodle Jump", url: "https://www.doodlejump.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Doodle_Jump_Logo.png"},
-        {name: "Jetpack Joyride", url: "https://www.jetpackjoyride.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Jetpack_Joyride_logo.png"},
-        {name: "Fruit Ninja", url: "https://www.fruitninja.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/5/57/Fruit_Ninja_logo.svg"},
-        {name: "Geometry Dash", url: "https://www.geometrydash.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Geometry_Dash_logo.png"},
-        {name: "Cut the Rope", url: "https://www.cuttherope.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cut_the_Rope_logo.png"},
-        {name: "Subway Surfers", url: "https://www.subwaysurfers.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Subway_Surfers_Logo.png"},
-        {name: "Clash of Clans", url: "https://www.clashofclans.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Clash_of_Clans_logo.png"},
-        {name: "Minecraft", url: "https://www.minecraft.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/Minecraft_logo.svg"},
-        {name: "Fortnite", url: "https://www.epicgames.com/fortnite", icon: "https://upload.wikimedia.org/wikipedia/commons/7/77/Fortnite_Logo_2018.svg"},
-        {name: "PUBG", url: "https://www.pubg.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Pubg_logo.svg"},
-        {name: "Apex Legends", url: "https://www.ea.com/games/apex-legends", icon: "https://upload.wikimedia.org/wikipedia/commons/9/95/Apex_Legends_logo.svg"},
-        {name: "Valorant", url: "https://playvalorant.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/Valorant_logo.svg"},
-        
-        // Lisää uusia pelejä tästä eteenpäin
-        {name: "Minecraft Classic", url: "https://classic.minecraft.net/", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Minecraft_logo.svg"},
-        {name: "Among Us", url: "https://www.innersloth.com/gameAmongUs.php", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Among_Us_Logo.svg"},
-        {name: "League of Legends", url: "https://www.leagueoflegends.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9f/League_of_Legends_logo_2019.svg"},
-        {name: "Call of Duty: Warzone", url: "https://www.callofduty.com/warzone", icon: "https://upload.wikimedia.org/wikipedia/commons/0/02/Call_of_Duty_logo.svg"},
-        {name: "Overwatch", url: "https://playoverwatch.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Overwatch_Logo_2016.svg"},
-        {name: "World of Warcraft", url: "https://worldofwarcraft.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d1/World_of_Warcraft_logo_2014.svg"},
-        {name: "Fall Guys", url: "https://fallguys.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Fall_Guys_logo.svg"},
-        {name: "FIFA 21", url: "https://www.ea.com/games/fifa/fifa-21", icon: "https://upload.wikimedia.org/wikipedia/commons/9/96/FIFA_21_logo.svg"},
-        {name: "Rainbow Six Siege", url: "https://www.ubisoft.com/game/rainbow-six/siege", icon: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Rainbow_Six_Siege_logo.svg"},
-        {name: "Rocket League", url: "https://www.rocketleague.com/", icon: "https://upload.wikimedia.org/wikipedia/commons/3/36/Rocket_League_logo.svg"}
-    ];
-
-    games.forEach(game => {
-        const gameButton = document.createElement("div");
-        gameButton.classList.add("grid-item");
-        gameButton.innerHTML = `
-            <button onclick="openGame('${game.url}')"> 
-                <img src="${game.icon}" alt="${game.name}">
-                <span>${game.name}</span>
-            </button>
-        `;
-        document.querySelector(".grid-container").appendChild(gameButton);
-    });
-
-    function openGame(url) {
-        const modal = document.createElement("div");
-        modal.classList.add("game-iframe-modal");
-        modal.innerHTML = `
-            <button class="close-btn" onclick="closeModal()">X</button>
-            <iframe class="game-iframe" src="${url}" frameborder="0"></iframe>
-        `;
-        document.body.appendChild(modal);
-        modal.style.display = "flex";
-    }
-
-    function closeModal() {
-        const modal = document.querySelector(".game-iframe-modal");
-        modal.style.display = "none";
-        modal.remove();
-    }
-</script>
