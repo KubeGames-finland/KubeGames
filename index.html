@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
         body {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            background: linear-gradient(135deg, #00bcd4, #008c8c); /* Turkoosi tausta */
             color: white;
             font-family: 'Rubik', sans-serif;
             margin: 0;
@@ -82,7 +82,7 @@
 
         .grid-item {
             height: 140px;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            background: linear-gradient(135deg, #00bcd4, #008c8c); /* Turkoosi tausta */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -97,7 +97,7 @@
 
         .grid-item:hover {
             transform: scale(1.1);
-            background: linear-gradient(135deg, #ff6b6b, #ff3e3e);
+            background: linear-gradient(135deg, #00c6c6, #009e9e); /* Vaaleampi turkoosi hover-tila */
         }
 
         .grid-item button {
@@ -128,7 +128,6 @@
             border-radius: 5px;
         }
 
-        /* Pelin iframe modaalina */
         .game-iframe-modal {
             display: none;
             position: fixed;
@@ -152,7 +151,6 @@
             align-items: center;
         }
 
-        /* Sulkemisnappi */
         .close-btn {
             position: absolute;
             top: 20px;
@@ -170,7 +168,6 @@
             background-color: #ff6b6b;
         }
 
-        /* Uudet osiot: */
         .contact, .top-rated, .search-container {
             margin-top: 40px;
             text-align: left;
@@ -178,7 +175,7 @@
         }
 
         .search-container {
-            display: none; /* Initially hidden */
+            display: none;
             margin-top: 20px;
             text-align: center;
         }
@@ -194,7 +191,7 @@
         .search-container button {
             padding: 10px;
             font-size: 16px;
-            background-color: #ff416c;
+            background-color: #00bcd4; /* Turkoosi väri */
             border: none;
             color: white;
             cursor: pointer;
@@ -216,7 +213,6 @@
     </header>
 
     <main>
-        <!-- Search Section -->
         <section id="search" class="search-container">
             <h2>Search Games</h2>
             <input type="text" id="searchInput" placeholder="Search for a game...">
@@ -224,7 +220,6 @@
             <div id="searchResults"></div>
         </section>
 
-        <!-- Top Rated Section -->
         <section id="top-rated" class="top-rated">
             <h2>Top Rated Games</h2>
             <div class="grid-container">
@@ -249,7 +244,6 @@
             </div>
         </section>
 
-        <!-- Contact Us Section -->
         <section id="contact" class="contact">
             <h2>Contact Us</h2>
             <p>Phone: 000000</p>
@@ -259,20 +253,16 @@
         </section>
     </main>
 
-    <!-- Pelin iframe modaalina -->
     <div class="game-iframe-modal" id="gameModal">
         <button class="close-btn" onclick="closeModal()">X</button>
-        <div class="game-container" id="gameContainer">
-            <!-- Pelin iframe tulee tänne -->
-        </div>
+        <div class="game-container" id="gameContainer"></div>
     </div>
 
     <script>
-        // Avaa peli
         function openGame(game) {
             const gameModal = document.getElementById('gameModal');
             const gameContainer = document.getElementById('gameContainer');
-            gameContainer.innerHTML = ''; // Tyhjennetään aiemmat pelit
+            gameContainer.innerHTML = '';
 
             let gameUrl = '';
             switch (game) {
@@ -300,20 +290,18 @@
             gameModal.style.display = 'flex';
         }
 
-        // Sulje peli
         function closeModal() {
             const gameModal = document.getElementById('gameModal');
             gameModal.style.display = 'none';
             document.getElementById('gameContainer').innerHTML = '';
         }
 
-        // Haku
         function searchGame() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const results = document.getElementById('searchResults');
-            results.innerHTML = ''; // Tyhjennetään aiemmat tulokset
+            results.innerHTML = '';
 
-            const games = ['flappybird', 'tetris', 'pacman']; // Pelit, joita voi etsiä
+            const games = ['flappybird', 'tetris', 'pacman'];
 
             const filteredGames = games.filter(game => game.toLowerCase().includes(query));
             if (filteredGames.length === 0) {
@@ -328,7 +316,6 @@
             }
         }
 
-        // Näyttää/hides search bar
         document.getElementById("searchButton").onclick = function() {
             const searchSection = document.querySelector(".search-container");
             searchSection.style.display = (searchSection.style.display === "none" || searchSection.style.display === "") ? "block" : "none";
