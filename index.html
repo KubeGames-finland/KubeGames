@@ -169,6 +169,49 @@
         .close-btn:hover {
             background-color: #ff6b6b;
         }
+
+        /* Top Rated -osio */
+        #top-rated {
+            margin-top: 50px;
+        }
+
+        /* Search -osio */
+        #search {
+            margin-top: 50px;
+        }
+
+        #search input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #search button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ff4b2b;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #search button:hover {
+            background-color: #ff6b6b;
+        }
+
+        /* Contact Us -osio */
+        #contact {
+            margin-top: 50px;
+        }
+
+        #contact p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
     </style>
 </head>
 
@@ -185,69 +228,47 @@
     </header>
 
     <main>
-        <div class="grid-container">
-            <!-- Pelit -->
-            <div class="grid-item">
-                <button onclick="openGame('flappybird')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png" alt="Flappy Bird">
-                    <span>Flappy Bird</span>
-                </button>
+        <!-- Top Rated -osio -->
+        <section id="top-rated">
+            <h2>Top Rated</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <button onclick="openGame('flappybird')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png" alt="Flappy Bird">
+                        <span>Flappy Bird</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('tetris')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg" alt="Tetris">
+                        <span>Tetris</span>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <button onclick="openGame('pacman')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg" alt="Pac-Man">
+                        <span>Pac-Man</span>
+                    </button>
+                </div>
             </div>
-            <div class="grid-item">
-                <button onclick="openGame('tetris')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg" alt="Tetris">
-                    <span>Tetris</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('pacman')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg" alt="Pac-Man">
-                    <span>Pac-Man</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('snake')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png" alt="Snake">
-                    <span>Snake Game</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('pong')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png" alt="Pong">
-                    <span>Pong</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('asteroids')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png" alt="Asteroids">
-                    <span>Asteroids</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('spaceinvaders')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg" alt="Space Invaders">
-                    <span>Space Invaders</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('bubble')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png" alt="Bubble Shooter">
-                    <span>Bubble Shooter</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('2048')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png" alt="2048">
-                    <span>2048</span>
-                </button>
-            </div>
-            <div class="grid-item">
-                <button onclick="openGame('angrybirds')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png" alt="Angry Birds">
-                    <span>Angry Birds</span>
-                </button>
-            </div>
-        </div>
+        </section>
+
+        <!-- Search -osio -->
+        <section id="search">
+            <h2>Search</h2>
+            <input type="text" id="searchInput" placeholder="Search for a game...">
+            <button onclick="searchGame()">Search</button>
+            <div class="grid-container" id="searchResults"></div>
+        </section>
+
+        <!-- Contact Us -osio -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Phone: -</p>
+            <p>Email: kubegames.business@outlook.com</p>
+            <p>Address: -</p>
+            <p>Country: Finland</p>
+        </section>
     </main>
 
     <!-- Pelin iframe modaalina -->
@@ -259,6 +280,19 @@
     </div>
 
     <script>
+        const games = [
+            { name: 'Flappy Bird', id: 'flappybird', img: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flappy_Bird_icon.png' },
+            { name: 'Tetris', id: 'tetris', img: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Tetris_logo.svg' },
+            { name: 'Pac-Man', id: 'pacman', img: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Pacman_logo.svg' },
+            { name: 'Snake Game', id: 'snake', img: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Snake_game_icon.png' },
+            { name: 'Pong', id: 'pong', img: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Pong_Logo.png' },
+            { name: 'Asteroids', id: 'asteroids', img: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Asteroids_Atari_game_logo.png' },
+            { name: 'Space Invaders', id: 'spaceinvaders', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Space_Invaders_Logo.svg' },
+            { name: 'Bubble Shooter', id: 'bubble', img: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Bubble_Shooter_logo.png' },
+            { name: '2048', id: '2048', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/2048_game_logo.png' },
+            { name: 'Angry Birds', id: 'angrybirds', img: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Angry_Birds_Logo.png' }
+        ];
+
         function openGame(game) {
             const gameModal = document.getElementById('gameModal');
             const gameContainer = document.getElementById('gameContainer');
@@ -320,51 +354,31 @@
             gameModal.style.display = 'none';
             document.getElementById('gameContainer').innerHTML = '';
         }
+
+        function searchGame() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+            const filteredGames = games.filter(game => game.name.toLowerCase().includes(searchInput));
+
+            if (filteredGames.length > 0) {
+                filteredGames.forEach(game => {
+                    const gridItem = document.createElement('div');
+                    gridItem.className = 'grid-item';
+                    gridItem.innerHTML = `
+                        <button onclick="openGame('${game.id}')">
+                            <img src="${game.img}" alt="${game.name}">
+                            <span>${game.name}</span>
+                        </button>
+                    `;
+                    searchResults.appendChild(gridItem);
+                });
+            } else {
+                searchResults.innerHTML = '<p>No games found.</p>';
+            }
+        }
     </script>
 </body>
 
-</html>
-<!DOCTYPE html>
-<html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KubeGames</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: white;
-            font-family: 'Rubik', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-        .game-iframe {
-            width: 600px;
-            height: 400px;
-            border: none;
-        }
-        .game-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <div class="game-title">Tetris</div>
-        <iframe class="game-iframe" src="https://gabrielecirulli.github.io/2048/" frameborder="0"></iframe>
-    </div>
-    <div>
-        <div class="game-title">2048</div>
-        <iframe class="game-iframe" src="https://gabrielecirulli.github.io/2048/" frameborder="0"></iframe>
-    </div>
-    <div>
-        <div class="game-title">Agar.io Clone</div>
-        <iframe class="game-iframe" src="https://mattyork.github.io/agar.io-clone/" frameborder="0"></iframe>
-    </div>
-</body>
 </html>
