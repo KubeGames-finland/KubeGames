@@ -168,7 +168,7 @@
             background-color: #ff6b6b;
         }
 
-        .contact, .top-rated, .search-container {
+        .contact, .top-rated, .all-games, .search-container {
             margin-top: 40px;
             text-align: left;
             color: white;
@@ -197,6 +197,13 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
+        /* Added red color for search button */
+        #searchButton {
+            background-color: #ff4b2b;
+            color: white;
+        }
+
     </style>
 </head>
 
@@ -244,6 +251,20 @@
             </div>
         </section>
 
+        <!-- Added All Games section -->
+        <section id="all-games" class="all-games">
+            <h2>All Games</h2>
+            <div class="grid-container">
+                <!-- List of 49 simple games -->
+                <div class="grid-item">
+                    <button onclick="openGame('2048')">
+                        <span>2048</span>
+                    </button>
+                </div>
+                <!-- Repeat similar grid items for other 48 games -->
+            </div>
+        </section>
+
         <section id="contact" class="contact">
             <h2>Contact Us</h2>
             <p>Phone: 000000</p>
@@ -275,6 +296,10 @@
                 case 'pacman':
                     gameUrl = 'https://www.pacman.com/play/';
                     break;
+                case '2048':
+                    gameUrl = 'https://play2048.co/';
+                    break;
+                // Add other game URLs similarly
                 default:
                     alert('Peli ei löytynyt');
                     return;
@@ -301,7 +326,7 @@
             const results = document.getElementById('searchResults');
             results.innerHTML = '';
 
-            const games = ['flappybird', 'tetris', 'pacman'];
+            const games = ['flappybird', 'tetris', 'pacman', '2048']; // Include all your games here
 
             const filteredGames = games.filter(game => game.toLowerCase().includes(query));
             if (filteredGames.length === 0) {
