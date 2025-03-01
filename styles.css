@@ -1,3 +1,44 @@
+/* Taustan väri turkoosiksi */
 body {
-    background-color: #E0FFFF; /* Vaalean turkoosi */
+    background: turquoise !important; /* Korvaa aiemman taustavärin */
+}
+
+/* Headerin navigointipainikkeiden tyylit */
+nav ul {
+    margin-left: -10px; /* Siirretään 1 cm (noin 10px) lähemmäs keskustaa */
+}
+
+/* Contact Us -painikkeen muutos */
+nav ul li a[href="#contact"]::after {
+    content: " ✉️"; /* Lisätään kirjekuori-emoji */
+}
+
+nav ul li a[href="#contact"] {
+    margin-right: 10px; /* Lisätään tilaa symbolille */
+}
+
+/* Poistetaan "Us" Contact Us -painikkeesta */
+nav ul li a[href="#contact"] {
+    font-size: 0; /* Piilotetaan teksti */
+}
+
+nav ul li a[href="#contact"]::before {
+    content: "Contact"; /* Näytetään vain "Contact" */
+    font-size: 18px; /* Palautetaan tekstin koko */
+}
+
+/* Top Rated -painikkeen muutos */
+nav ul li a[href="#top-rated"]::after {
+    content: " ✨"; /* Lisätään tähti-emoji */
+}
+
+/* Search -painikkeen muutos */
+nav ul li a[href="#search"]::after {
+    content: " 🔍"; /* Lisätään suurennuslasi-emoji */
+}
+
+/* Yleinen tyyli symbolien lisäämiseksi */
+nav ul li a::after {
+    margin-left: 5px; /* Lisää tilaa symbolin ja tekstin väliin */
+    font-size: 18px; /* Symbolin koko */
 }
