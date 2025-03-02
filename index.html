@@ -85,7 +85,13 @@
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, background 0.3s;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out forwards;
         }
+        .grid-item:nth-child(1) { animation-delay: 0.2s; }
+        .grid-item:nth-child(2) { animation-delay: 0.4s; }
+        .grid-item:nth-child(3) { animation-delay: 0.6s; }
         .grid-item:hover {
             transform: scale(1.1);
             background: linear-gradient(135deg, #00c6c6, #009e9e);
@@ -95,6 +101,51 @@
             height: 70px;
             margin-bottom: 10px;
             border-radius: 5px;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.7);
+        }
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1001;
+            color: white;
+        }
+        .search-modal input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .search-modal button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: #00bcd4;
+            color: white;
+            cursor: pointer;
+        }
+        .search-modal button:hover {
+            background: #008c8c;
         }
     </style>
 </head>
@@ -140,6 +191,13 @@
             <p>Country: Finland</p>
         </section>
     </main>
+    <footer>
+        &copy; 2023 KubeGames. All rights reserved.
+    </footer>
+    <div class="search-modal" id="searchModal">
+        <input type="text" id="searchInput" placeholder="Search for a game...">
+        <button onclick="performSearch()">Search</button>
+    </div>
     <script>
         function openGame(game) {
             let gameUrl = '';
@@ -158,6 +216,17 @@
                     return;
             }
             window.open(gameUrl, '_blank');
+        }
+
+        document.getElementById('searchButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('searchModal').style.display = 'block';
+        });
+
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            alert('Searching for: ' + searchTerm);
+            // Here you can add the logic to handle the search
         }
     </script>
 </body>
