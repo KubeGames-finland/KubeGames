@@ -4,230 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubeGames</title>
-    <link rel="icon" type="image/png" href="KubeGames.png">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #00bcd4, #008c8c);
-            color: white;
-            font-family: 'Rubik', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 20px 40px;
-            background: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
-        }
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: linear-gradient(45deg, #ffffff, #00aaff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            padding: 10px 18px;
-            transition: 0.3s;
-            border-radius: 5px;
-        }
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        main {
-            margin-top: 120px;
-            width: 90%;
-            text-align: center;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-            width: 90%;
-            padding-bottom: 50px;
-        }
-        .grid-item {
-            height: 140px;
-            background: linear-gradient(135deg, #00bcd4, #008c8c);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 18px;
-            text-align: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
             border-radius: 10px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, background 0.3s;
-            position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease-out forwards;
-        }
-        .grid-item:nth-child(1) { animation-delay: 0.2s; }
-        .grid-item:nth-child(2) { animation-delay: 0.4s; }
-        .grid-item:nth-child(3) { animation-delay: 0.6s; }
-        .grid-item:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #00c6c6, #009e9e);
-        }
-        .grid-item img {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        footer {
-            background: rgba(0, 0, 0, 0.9);
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            margin-top: 50px;
-            box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.7);
-        }
-        .search-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 1001;
-            color: white;
-        }
-        .search-modal input {
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-        .search-modal button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background: #00bcd4;
-            color: white;
-            cursor: pointer;
-        }
-        .search-modal button:hover {
-            background: #008c8c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">KubeGames</div>
-        <nav>
-            <ul>
-                <li><a href="#top-rated">Top Rated</a></li>
-                <li><a href="#" id="searchButton">Search</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="top-rated" class="top-rated">
-            <h2>Top Rated Games</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <button onclick="openGame('flappybird')">
-                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/d94f3dc4-bc3a-4f92-88ea-e7cdcb74bde4/d75j4w6-2b9f343e-c5c5-4f87-9cd6-7441c8d97378.png" alt="Flappy Bird">
-                        <span>Flappy Bird</span>
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <button onclick="openGame('tetris')">
-                        <img src="https://media.freemalaysiatoday.com/wp-content/uploads/2020/07/tetris-lifestyle-107202009.jpg" alt="Tetris">
-                        <span>Tetris</span>
-                    </button>
-                </div>
-                <div class="grid-item">
-                    <button onclick="openGame('pacman')">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png" alt="Pac-Man">
-                        <span>Pac-Man</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-        <section id="contact" class="contact">
-            <h2>Contact Us</h2>
-            <p>Phone: 000000</p>
-            <p>Email: kubegames.business@outlook.com</p>
-            <p>Country: Finland</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2023 KubeGames. All rights reserved.
-    </footer>
-    <div class="search-modal" id="searchModal">
-        <input type="text" id="searchInput" placeholder="Search for a game...">
-        <button onclick="performSearch()">Search</button>
-    </div>
-    <script>
-        function openGame(game) {
-            let gameUrl = '';
-            switch (game) {
-                case 'flappybird':
-                    gameUrl = 'https://flappybird.io/';
-                    break;
-                case 'tetris':
-                    gameUrl = 'https://tetris.com/play-tetris';
-                    break;
-                case 'pacman':
-                    gameUrl = 'https://www.pacman.com/play/';
-                    break;
-                default:
-                    alert('Peli ei löytynyt');
-                    return;
-            }
-            window.open(gameUrl, '_blank');
-        }
-
-        document.getElementById('searchButton').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('searchModal').style.display = 'block';
-        });
-
-        function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value;
-            alert('Searching for: ' + searchTerm);
-            // Here you can add the logic to handle the search
-        }
-    </script>
+    <img src="KubeGames.png" alt="KubeGames logo">
 </body>
 </html>
