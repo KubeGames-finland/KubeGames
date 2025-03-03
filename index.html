@@ -3,25 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KubeGames</title>
+    <title>KUBEGAMES</title>
     <style>
-        body {
+        /* Yläpalkki */
+        .navbar {
+            background-color: black;
+            padding: 10px 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
-        img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        /* Otsikko vasemmalla */
+        .navbar .title {
+            font-size: 30px;
+            font-weight: bold;
+            background: linear-gradient(to right, #0000ff, #ffffff);
+            -webkit-background-clip: text;
+            color: transparent;
         }
+
+        /* Painikkeet oikealla */
+        .navbar .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .buttons a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+            background-color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .buttons a:hover {
+            background-color: #666;
+        }
+
+        /* Muu sivun sisältö */
+        body {
+            margin-top: 60px; /* Varmistaa, että sisältö ei mene yläpalkin päälle */
+        }
+
     </style>
 </head>
 <body>
-    <img src="KubeGames.png" alt="KubeGames logo">
+
+    <!-- Yläpalkki -->
+    <div class="navbar">
+        <div class="title">KUBEGAMES</div>
+        <div class="buttons">
+            <a href="#">Top Rated</a>
+            <a href="#">Search</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Sivun muu sisältö -->
+    <div class="content">
+        <h1>Tervetuloa KUBEGAMES-sivustolle!</h1>
+        <p>Täällä voit pelata ja nauttia hauskoista peleistä.</p>
+    </div>
+
 </body>
 </html>
