@@ -1,58 +1,88 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kubegames</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>KUBEGAMES</title>
+    <style>
+        body {
+            background-color: turquoise;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .title {
+            font-size: 24px;
+            color: white;
+        }
+        .nav-button {
+            background-color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .game-card {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <!-- Yläpalkki -->
     <header>
-        <div class="logo">KUBEGAMES</div>
-        <nav>
-            <ul>
-                <li><a href="#">Top Rated ⭐</a></li>
-                <li><a href="#">Search 🔍</a></li>
-                <li><a href="#">Contact Us 📞</a></li>
-            </ul>
-        </nav>
+        <div class="title">KUBEGAMES</div>
+        <div>
+            <button class="nav-button" onclick="location.href='#'">Top Rated⭐</button>
+            <button class="nav-button" onclick="location.href='#'">Search🔍</button>
+            <button class="nav-button" onclick="location.href='#'">Contact Us📞</button>
+        </div>
     </header>
-
-    <!-- Pelisivun sisältö -->
-    <main>
-        <section class="game-container">
-            <!-- 25 pelin palkkia -->
-            <div class="game-card">Peli 1<br><img src="https://via.placeholder.com/150" alt="Peli 1"></div>
-            <div class="game-card">Peli 2<br><img src="https://via.placeholder.com/150" alt="Peli 2"></div>
-            <div class="game-card">Peli 3<br><img src="https://via.placeholder.com/150" alt="Peli 3"></div>
-            <div class="game-card">Peli 4<br><img src="https://via.placeholder.com/150" alt="Peli 4"></div>
-            <div class="game-card">Peli 5<br><img src="https://via.placeholder.com/150" alt="Peli 5"></div>
-
-            <div class="game-card">Peli 6<br><img src="https://via.placeholder.com/150" alt="Peli 6"></div>
-            <div class="game-card">Peli 7<br><img src="https://via.placeholder.com/150" alt="Peli 7"></div>
-            <div class="game-card">Peli 8<br><img src="https://via.placeholder.com/150" alt="Peli 8"></div>
-            <div class="game-card">Peli 9<br><img src="https://via.placeholder.com/150" alt="Peli 9"></div>
-            <div class="game-card">Peli 10<br><img src="https://via.placeholder.com/150" alt="Peli 10"></div>
-
-            <div class="game-card">Peli 11<br><img src="https://via.placeholder.com/150" alt="Peli 11"></div>
-            <div class="game-card">Peli 12<br><img src="https://via.placeholder.com/150" alt="Peli 12"></div>
-            <div class="game-card">Peli 13<br><img src="https://via.placeholder.com/150" alt="Peli 13"></div>
-            <div class="game-card">Peli 14<br><img src="https://via.placeholder.com/150" alt="Peli 14"></div>
-            <div class="game-card">Peli 15<br><img src="https://via.placeholder.com/150" alt="Peli 15"></div>
-
-            <div class="game-card">Peli 16<br><img src="https://via.placeholder.com/150" alt="Peli 16"></div>
-            <div class="game-card">Peli 17<br><img src="https://via.placeholder.com/150" alt="Peli 17"></div>
-            <div class="game-card">Peli 18<br><img src="https://via.placeholder.com/150" alt="Peli 18"></div>
-            <div class="game-card">Peli 19<br><img src="https://via.placeholder.com/150" alt="Peli 19"></div>
-            <div class="game-card">Peli 20<br><img src="https://via.placeholder.com/150" alt="Peli 20"></div>
-
-            <div class="game-card">Peli 21<br><img src="https://via.placeholder.com/150" alt="Peli 21"></div>
-            <div class="game-card">Peli 22<br><img src="https://via.placeholder.com/150" alt="Peli 22"></div>
-            <div class="game-card">Peli 23<br><img src="https://via.placeholder.com/150" alt="Peli 23"></div>
-            <div class="game-card">Peli 24<br><img src="https://via.placeholder.com/150" alt="Peli 24"></div>
-            <div class="game-card">Peli 25<br><img src="https://via.placeholder.com/150" alt="Peli 25"></div>
-        </section>
-    </main>
+    <div class="game-container">
+        <!-- Game Cards -->
+        <div class="game-card"><h3>Peli 1</h3><img src="placeholder.jpg" alt="Game 1"></div>
+        <div class="game-card"><h3>Peli 2</h3><img src="placeholder.jpg" alt="Game 2"></div>
+        <div class="game-card"><h3>Peli 3</h3><img src="placeholder.jpg" alt="Game 3"></div>
+        <div class="game-card"><h3>Peli 4</h3><img src="placeholder.jpg" alt="Game 4"></div>
+        <div class="game-card"><h3>Peli 5</h3><img src="placeholder.jpg" alt="Game 5"></div>
+        <div class="game-card"><h3>Peli 6</h3><img src="placeholder.jpg" alt="Game 6"></div>
+        <div class="game-card"><h3>Peli 7</h3><img src="placeholder.jpg" alt="Game 7"></div>
+        <div class="game-card"><h3>Peli 8</h3><img src="placeholder.jpg" alt="Game 8"></div>
+        <div class="game-card"><h3>Peli 9</h3><img src="placeholder.jpg" alt="Game 9"></div>
+        <div class="game-card"><h3>Peli 10</h3><img src="placeholder.jpg" alt="Game 10"></div>
+        <div class="game-card"><h3>Peli 11</h3><img src="placeholder.jpg" alt="Game 11"></div>
+        <div class="game-card"><h3>Peli 12</h3><img src="placeholder.jpg" alt="Game 12"></div>
+        <div class="game-card"><h3>Peli 13</h3><img src="placeholder.jpg" alt="Game 13"></div>
+        <div class="game-card"><h3>Peli 14</h3><img src="placeholder.jpg" alt="Game 14"></div>
+        <div class="game-card"><h3>Peli 15</h3><img src="placeholder.jpg" alt="Game 15"></div>
+        <div class="game-card"><h3>Peli 16</h3><img src="placeholder.jpg" alt="Game 16"></div>
+        <div class="game-card"><h3>Peli 17</h3><img src="placeholder.jpg" alt="Game 17"></div>
+        <div class="game-card"><h3>Peli 18</h3><img src="placeholder.jpg" alt="Game 18"></div>
+        <div class="game-card"><h3>Peli 19</h3><img src="placeholder.jpg" alt="Game 19"></div>
+        <div class="game-card"><h3>Peli 20</h3><img src="placeholder.jpg" alt="Game 20"></div>
+        <div class="game-card"><h3>Peli 21</h3><img src="placeholder.jpg" alt="Game 21"></div>
+        <div class="game-card"><h3>Peli 22</h3><img src="placeholder.jpg" alt="Game 22"></div>
+        <div class="game-card"><h3>Peli 23</h3><img src="placeholder.jpg" alt="Game 23"></div>
+        <div class="game-card"><h3>Peli 24</h3><img src="placeholder.jpg" alt="Game 24"></div>
+        <div class="game-card"><h3>Peli 25</h3><img src="placeholder.jpg" alt="Game 25"></div>
+    </div>
 </body>
 </html>
