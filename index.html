@@ -1,3 +1,5 @@
+# KUBEGAMES
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +21,14 @@
         }
         .nav-button {
             background-color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .search-button {
+            background-color: red;
+            color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -53,6 +63,13 @@
             flex: 1;
             color: white;
         }
+        .contact-info {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -61,12 +78,12 @@
         <div>
             <button class="nav-button" onclick="location.href='#top-rated'">Top Rated⭐</button>
             <button class="nav-button" onclick="document.getElementById('search-form').style.display='block'">Search🔍</button>
-            <button class="nav-button" onclick="location.href='contact.html'">Contact Us📞</button>
+            <button class="nav-button" onclick="showContact()">Contact Us📞</button>
         </div>
     </header>
     <div id="search-form" style="display:none;">
         <input type="text" placeholder="Search games...">
-        <button onclick="searchGames()">Search</button>
+        <button class="search-button" onclick="searchGames()">Search</button>
     </div>
     <div class="game-container">
         <!-- Game Cards -->
@@ -189,6 +206,12 @@
         <div class="game-bar"><div class="game-title">Game 14</div></div>
         <div class="game-bar"><div class="game-title">Game 15</div></div>
     </div>
+    <div class="contact-info" id="contact-info">
+        <h2>Contact Us</h2>
+        <p>Phone: -</p>
+        <p>Email: kubegames.business@outlook.com</p>
+        <p>Country: Finland</p>
+    </div>
     <script>
         function searchGames() {
             const query = document.querySelector('input[type="text"]').value;
@@ -196,6 +219,12 @@
             // Implement search functionality here
         }
         
+        function showContact() {
+            document.getElementById('contact-info').style.display = 'block';
+            document.querySelector('.game-container').style.display = 'none';
+            document.getElementById('top-rated').style.display = 'none';
+        }
+
         document.querySelector('.nav-button').addEventListener('click', function() {
             document.getElementById('top-rated').style.display = 'block';
             document.querySelector('.game-container').style.display = 'none';
