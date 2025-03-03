@@ -1,90 +1,95 @@
-/* Taustaväri turkoosiksi */
+/* Taustaväri ja yleinen ulkoasu */
 body {
-    background-color: turquoise;
-    margin: 0;
+    background-color: turquoise; /* Taustaväri */
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Headerin tyylit */
+/* Yläpalkki */
 header {
-    background-color: #333;
-    padding: 10px 20px;
-}
-
-.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Painikkeiden tyylit */
-.left-buttons {
-    display: flex;
-    gap: 10px;
-    margin-left: 1cm; /* Siirretään painikkeita 1 cm lähemmäksi keskustaa */
-}
-
-.nav-button {
-    background-color: #555;
+    padding: 20px;
+    background-color: #333;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
-    gap: 5px; /* Tekstin ja emojin väli */
 }
 
-.nav-button:hover {
-    background-color: #777;
+header nav ul li {
+    margin-left: 20px;
 }
 
-/* Emojit painikkeiden viereen */
-.nav-button[data-text="Contact"]::after {
-    content: " ✉️"; /* Contact-painikkeen emoji */
-}
-
-.nav-button[data-text="Search"]::after {
-    content: " 🔍"; /* Search-painikkeen emoji */
-}
-
-.nav-button[data-text="Top Rated"]::after {
-    content: " ✨"; /* Top Rated -painikkeen emoji */
-}
-
-/* Pelin modaalinen näkymä */
-.game-iframe-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ff6b6b;
+header nav ul li a {
     color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 16px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
 }
 
-.close-btn:hover {
-    background-color: #ff4c4c;
+header nav ul li a:hover {
+    color: #f0f0f0;
 }
 
+/* Pelisivun ruudukko */
 .game-container {
-    width: 80%;
-    height: 80%;
-    background-color: white;
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 saraketta */
+    grid-gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background-color: white; /* Palkkien taustaväri */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Varjostus */
+    border-radius: 8px;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsiivisuus: pelisivun mukautuminen pienempiin näyttöihin */
+@media (max-width: 768px) {
+    .game-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 saraketta pienemmillä näytöillä */
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 saraketta erittäin pienillä näytöillä */
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }
