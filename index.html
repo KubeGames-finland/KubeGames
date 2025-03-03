@@ -40,13 +40,26 @@
             width: 100%;
             height: auto;
         }
+        .game-bar {
+            width: 100%;
+            height: 30px;
+            background-color: darkslategray;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .game-title {
+            flex: 1;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>KUBEGAMES</h1>
         <div>
-            <button class="nav-button" onclick="location.href='top-rated.html'">Top Rated⭐</button>
+            <button class="nav-button" onclick="location.href='#top-rated'">Top Rated⭐</button>
             <button class="nav-button" onclick="document.getElementById('search-form').style.display='block'">Search🔍</button>
             <button class="nav-button" onclick="location.href='contact.html'">Contact Us📞</button>
         </div>
@@ -158,14 +171,35 @@
             <img src="placeholder.jpg" alt="Game 25">
         </div>
     </div>
+    <div id="top-rated" style="display:none;">
+        <h1>Top Rated Games</h1>
+        <div class="game-bar"><div class="game-title">Game 1</div></div>
+        <div class="game-bar"><div class="game-title">Game 2</div></div>
+        <div class="game-bar"><div class="game-title">Game 3</div></div>
+        <div class="game-bar"><div class="game-title">Game 4</div></div>
+        <div class="game-bar"><div class="game-title">Game 5</div></div>
+        <div class="game-bar"><div class="game-title">Game 6</div></div>
+        <div class="game-bar"><div class="game-title">Game 7</div></div>
+        <div class="game-bar"><div class="game-title">Game 8</div></div>
+        <div class="game-bar"><div class="game-title">Game 9</div></div>
+        <div class="game-bar"><div class="game-title">Game 10</div></div>
+        <div class="game-bar"><div class="game-title">Game 11</div></div>
+        <div class="game-bar"><div class="game-title">Game 12</div></div>
+        <div class="game-bar"><div class="game-title">Game 13</div></div>
+        <div class="game-bar"><div class="game-title">Game 14</div></div>
+        <div class="game-bar"><div class="game-title">Game 15</div></div>
+    </div>
     <script>
         function searchGames() {
             const query = document.querySelector('input[type="text"]').value;
             alert('Searching for: ' + query);
             // Implement search functionality here
         }
+        
+        document.querySelector('.nav-button').addEventListener('click', function() {
+            document.getElementById('top-rated').style.display = 'block';
+            document.querySelector('.game-container').style.display = 'none';
+        });
     </script>
 </body>
 </html>
-
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
