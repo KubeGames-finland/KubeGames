@@ -1,3 +1,5 @@
+# KUBEGAMES
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,21 +37,38 @@
         .game-container {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
+            gap: 20px;
             padding: 20px;
         }
         .game-card {
             background-color: white;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            padding: 5px;
+            padding: 10px;
             text-align: center;
-            width: 3cm;
-            height: 3cm;
         }
-        iframe {
+        img {
             width: 100%;
-            height: 100%;
-            border: none;
+            height: auto;
+        }
+        .game-bar {
+            width: 100%;
+            height: 30px;
+            background-color: darkslategray;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .game-title {
+            flex: 1;
+            color: white;
+        }
+        .contact-info {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -62,17 +81,154 @@
             <button class="nav-button" onclick="showContact()">Contact Us📞</button>
         </div>
     </header>
-    <div class="game-container">
-        <div class="game-card"><iframe src="https://play2048.co/"></iframe></div>
-        <div class="game-card"><iframe src="https://tetris.com/play-tetris"></iframe></div>
-        <div class="game-card"><iframe src="https://playsnake.org/"></iframe></div>
-        <div class="game-card"><iframe src="https://www.chess.com/play/computer"></iframe></div>
-        <div class="game-card"><iframe src="https://www.solitr.com/"></iframe></div>
-        <div class="game-card"><iframe src="https://minesweeper.online/"></iframe></div>
-        <div class="game-card"><iframe src="https://www.google.com/logos/2010/pacman10-i.html"></iframe></div>
-        <div class="game-card"><iframe src="https://sudoku.com/"></iframe></div>
-        <div class="game-card"><iframe src="https://papergames.io/en/connect4"></iframe></div>
+    <div id="search-form" style="display:none;">
+        <input type="text" placeholder="Search games...">
+        <button class="search-button" onclick="searchGames()">Search</button>
     </div>
+    <div class="game-container">
+        <!-- Game Cards -->
+        <div class="game-card">
+            <h2>Tic-Tac-Toe</h2>
+            <a href="https://papergames.io/en/tic-tac-toe"><img src="placeholder.jpg" alt="Tic-Tac-Toe"></a>
+        </div>
+        <div class="game-card">
+            <h2>Flappy Bird</h2>
+            <a href="https://flappybird.io/"><img src="placeholder.jpg" alt="Flappy Bird"></a>
+        </div>
+        <div class="game-card">
+            <h2>Chess</h2>
+            <a href="https://www.chess.com/play/computer"><img src="placeholder.jpg" alt="Chess"></a>
+        </div>
+        <div class="game-card">
+            <h2>Hearts</h2>
+            <a href="https://www.hearts.land/"><img src="placeholder.jpg" alt="Hearts"></a>
+        </div>
+        <div class="game-card">
+            <h2>Memory Game</h2>
+            <a href="https://www.memozor.com/memory-games/"><img src="placeholder.jpg" alt="Memory Game"></a>
+        </div>
+        <div class="game-card">
+            <h2>Jigsaw Puzzle</h2>
+            <a href="https://www.jspuzzles.com/"><img src="placeholder.jpg" alt="Jigsaw Puzzle"></a>
+        </div>
+        <div class="game-card">
+            <h2>Peli 7</h2>
+            <img src="placeholder.jpg" alt="Game 7">
+        </div>
+        <div class="game-card">
+            <h2>Peli 8</h2>
+            <img src="placeholder.jpg" alt="Game 8">
+        </div>
+        <div class="game-card">
+            <h2>Peli 9</h2>
+            <img src="placeholder.jpg" alt="Game 9">
+        </div>
+        <div class="game-card">
+            <h2>Peli 10</h2>
+            <img src="placeholder.jpg" alt="Game 10">
+        </div>
+        <div class="game-card">
+            <h2>Peli 11</h2>
+            <img src="placeholder.jpg" alt="Game 11">
+        </div>
+        <div class="game-card">
+            <h2>Peli 12</h2>
+            <img src="placeholder.jpg" alt="Game 12">
+        </div>
+        <div class="game-card">
+            <h2>Peli 13</h2>
+            <img src="placeholder.jpg" alt="Game 13">
+        </div>
+        <div class="game-card">
+            <h2>Peli 14</h2>
+            <img src="placeholder.jpg" alt="Game 14">
+        </div>
+        <div class="game-card">
+            <h2>Peli 15</h2>
+            <img src="placeholder.jpg" alt="Game 15">
+        </div>
+        <div class="game-card">
+            <h2>Peli 16</h2>
+            <img src="placeholder.jpg" alt="Game 16">
+        </div>
+        <div class="game-card">
+            <h2>Peli 17</h2>
+            <img src="placeholder.jpg" alt="Game 17">
+        </div>
+        <div class="game-card">
+            <h2>Peli 18</h2>
+            <img src="placeholder.jpg" alt="Game 18">
+        </div>
+        <div class="game-card">
+            <h2>Peli 19</h2>
+            <img src="placeholder.jpg" alt="Game 19">
+        </div>
+        <div class="game-card">
+            <h2>Peli 20</h2>
+            <img src="placeholder.jpg" alt="Game 20">
+        </div>
+        <div class="game-card">
+            <h2>Peli 21</h2>
+            <img src="placeholder.jpg" alt="Game 21">
+        </div>
+        <div class="game-card">
+            <h2>Peli 22</h2>
+            <img src="placeholder.jpg" alt="Game 22">
+        </div>
+        <div class="game-card">
+            <h2>Peli 23</h2>
+            <img src="placeholder.jpg" alt="Game 23">
+        </div>
+        <div class="game-card">
+            <h2>Peli 24</h2>
+            <img src="placeholder.jpg" alt="Game 24">
+        </div>
+        <div class="game-card">
+            <h2>Peli 25</h2>
+            <img src="placeholder.jpg" alt="Game 25">
+        </div>
+    </div>
+    <div id="top-rated" style="display:none;">
+        <h1>Top Rated Games</h1>
+        <div class="game-bar"><div class="game-title">Game 1</div></div>
+        <div class="game-bar"><div class="game-title">Game 2</div></div>
+        <div class="game-bar"><div class="game-title">Game 3</div></div>
+        <div class="game-bar"><div class="game-title">Game 4</div></div>
+        <div class="game-bar"><div class="game-title">Game 5</div></div>
+        <div class="game-bar"><div class="game-title">Game 6</div></div>
+        <div class="game-bar"><div class="game-title">Game 7</div></div>
+        <div class="game-bar"><div class="game-title">Game 8</div></div>
+        <div class="game-bar"><div class="game-title">Game 9</div></div>
+        <div class="game-bar"><div class="game-title">Game 10</div></div>
+        <div class="game-bar"><div class="game-title">Game 11</div></div>
+        <div class="game-bar"><div class="game-title">Game 12</div></div>
+        <div class="game-bar"><div class="game-title">Game 13</div></div>
+        <div class="game-bar"><div class="game-title">Game 14</div></div>
+        <div class="game-bar"><div class="game-title">Game 15</div></div>
+    </div>
+    <div class="contact-info" id="contact-info">
+        <h2>Contact Us</h2>
+        <p>Phone: -</p>
+        <p>Email: kubegames.business@outlook.com</p>
+        <p>Country: Finland</p>
+    </div>
+    <script>
+        function searchGames() {
+            const query = document.querySelector('input[type="text"]').value;
+            alert('Searching for: ' + query);
+            // Implement search functionality here
+        }
+        
+        function showContact() {
+            document.getElementById('contact-info').style.display = 'block';
+            document.querySelector('.game-container').style.display = 'none';
+            document.getElementById('top-rated').style.display = 'none';
+        }
+
+        document.querySelector('.nav-button').addEventListener('click', function() {
+            document.getElementById('top-rated').style.display = 'block';
+            document.querySelector('.game-container').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
-
