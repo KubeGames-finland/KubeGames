@@ -1,10 +1,10 @@
-# KUBEGAMES
+# KubeGames
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUBEGAMES</title>
+    <title>KubeGames</title>
     <style>
         body {
             background-color: turquoise;
@@ -34,20 +34,7 @@
             margin-left: 10px;
         }
         .game-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
-        .game-card {
-            background-color: white;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            text-align: center;
-        }
-        img {
-            width: 100%;
-            height: auto;
+            display: none;
         }
         .game-bar {
             width: 100%;
@@ -73,7 +60,7 @@
 </head>
 <body>
     <header>
-        <h1>KUBEGAMES</h1>
+        <h1>KubeGames</h1>
         <div>
             <button class="nav-button" onclick="location.href='#top-rated'">Top Rated⭐</button>
             <button class="nav-button" onclick="document.getElementById('search-form').style.display='block'">Search🔍</button>
@@ -83,56 +70,6 @@
     <div id="search-form" style="display:none;">
         <input type="text" placeholder="Search games...">
         <button class="search-button" onclick="searchGames()">Search</button>
-    </div>
-    <div class="game-container">
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/squid-race-simulator/', '_self');">
-            <h2>Squid Race Simulator</h2>
-            <img src="placeholder.jpg" alt="Squid Race Simulator">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/spartahoppers/', '_self');">
-            <h2>Sparta Hoppers</h2>
-            <img src="placeholder.jpg" alt="Sparta Hoppers">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/monster-survivors/', '_self');">
-            <h2>Monster Survivors</h2>
-            <img src="placeholder.jpg" alt="Monster Survivors">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/drift-king/', '_self');">
-            <h2>Drift King</h2>
-            <img src="placeholder.jpg" alt="Drift King">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/highway-traffic/', '_self');">
-            <h2>Highway Traffic</h2>
-            <img src="placeholder.jpg" alt="Highway Traffic">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/masked-special-forces/', '_self');">
-            <h2>Masked Special Forces</h2>
-            <img src="placeholder.jpg" alt="Masked Special Forces">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/love-tester/', '_self');">
-            <h2>Love Tester</h2>
-            <img src="placeholder.jpg" alt="Love Tester">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/gta-simulator/', '_self');">
-            <h2>GTA Simulator</h2>
-            <img src="placeholder.jpg" alt="GTA Simulator">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/real-flight-simulator/', '_self');">
-            <h2>Real Flight Simulator</h2>
-            <img src="placeholder.jpg" alt="Real Flight Simulator">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/stack-fire-ball/', '_self');">
-            <h2>Stack Fire Ball</h2>
-            <img src="placeholder.jpg" alt="Stack Fire Ball">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/stickman-gta-city/', '_self');">
-            <h2>Stickman GTA City</h2>
-            <img src="placeholder.jpg" alt="Stickman GTA City">
-        </div>
-        <div class="game-card" onclick="window.open('https://www.onlinegames.io/basket-hoop/', '_self');">
-            <h2>Basket Hoop</h2>
-            <img src="placeholder.jpg" alt="Basket Hoop">
-        </div>
     </div>
     <div id="top-rated" style="display:none;">
         <h1>Top Rated Games</h1>
@@ -166,15 +103,11 @@
         }
         function showContact() {
             document.getElementById('contact-info').style.display = 'block';
-            document.querySelector('.game-container').style.display = 'none';
             document.getElementById('top-rated').style.display = 'none';
         }
         document.querySelector('.nav-button').addEventListener('click', function() {
             document.getElementById('top-rated').style.display = 'block';
-            document.querySelector('.game-container').style.display = 'none';
         });
     </script>
 </body>
 </html>
-
-
