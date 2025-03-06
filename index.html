@@ -1,4 +1,3 @@
-# KubeGames
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +10,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
+            width: 100%;
+            background: #333;
+            color: white;
         }
         .nav-button {
             background-color: white;
@@ -25,90 +30,87 @@
             cursor: pointer;
             margin-left: 10px;
         }
-        .search-button {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
         .game-container {
-            display: none;
-        }
-        .game-bar {
-            width: 100%;
-            height: 30px;
-            background-color: darkslategray;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-        }
-        .game-title {
-            flex: 1;
-            color: white;
-        }
-        .contact-info {
-            display: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             padding: 20px;
+            width: 80%;
+        }
+        .game-card {
             background-color: white;
-            margin: 20px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        #game-screen {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: black;
+            z-index: 1000;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>KubeGames</h1>
-        <div>
-            <button class="nav-button" onclick="location.href='#top-rated'">Top Rated⭐</button>
-            <button class="nav-button" onclick="document.getElementById('search-form').style.display='block'">Search🔍</button>
-            <button class="nav-button" onclick="showContact()">Contact Us📞</button>
-        </div>
     </header>
-    <div id="search-form" style="display:none;">
-        <input type="text" placeholder="Search games...">
-        <button class="search-button" onclick="searchGames()">Search</button>
+
+    <div class="game-container">
+        <div class="game-card" onclick="playGame('https://www.onlinegames.io/games/2021/unity3/squid-race-simulator/index.html')">
+            <h2>Squid Race Simulator</h2>
+            <img src="https://www.onlinegames.io/media/posts/950/responsive/squid-race-simulator-xs.jpg" alt="Squid Race Simulator">
+        </div>
+        <div class="game-card" onclick="playGame('https://cloud.onlinegames.io/games/2025/construct/227/spartahoppers/index-og.html')">
+            <h2>Sparta Hoppers</h2>
+            <img src="https://www.onlinegames.io/media/posts/949/responsive/sparta-hoppers-game-xs.jpg" alt="Sparta Hoppers">
+        </div>
+        <div class="game-card" onclick="playGame('https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html')">
+            <h2>Monster Survivors</h2>
+            <img src="https://www.onlinegames.io/media/posts/942/responsive/Monster-survivors-xs.jpg" alt="Monster Survivors">
+        </div>
     </div>
-    <div id="top-rated" style="display:none;">
-        <h1>Top Rated Games</h1>
-        <div class="game-bar"><div class="game-title">Game 1</div></div>
-        <div class="game-bar"><div class="game-title">Game 2</div></div>
-        <div class="game-bar"><div class="game-title">Game 3</div></div>
-        <div class="game-bar"><div class="game-title">Game 4</div></div>
-        <div class="game-bar"><div class="game-title">Game 5</div></div>
-        <div class="game-bar"><div class="game-title">Game 6</div></div>
-        <div class="game-bar"><div class="game-title">Game 7</div></div>
-        <div class="game-bar"><div class="game-title">Game 8</div></div>
-        <div class="game-bar"><div class="game-title">Game 9</div></div>
-        <div class="game-bar"><div class="game-title">Game 10</div></div>
-        <div class="game-bar"><div class="game-title">Game 11</div></div>
-        <div class="game-bar"><div class="game-title">Game 12</div></div>
-        <div class="game-bar"><div class="game-title">Game 13</div></div>
-        <div class="game-bar"><div class="game-title">Game 14</div></div>
-        <div class="game-bar"><div class="game-title">Game 15</div></div>
+
+    <div id="game-screen">
+        <button class="close-btn" onclick="closeGame()">Close ❌</button>
+        <iframe id="game-frame"></iframe>
     </div>
-    <div class="contact-info" id="contact-info">
-        <h2>Contact Us</h2>
-        <p>Phone: -</p>
-        <p>Email: kubegames.business@outlook.com</p>
-        <p>Country: Finland</p>
-    </div>
+
     <script>
-        function searchGames() {
-            const query = document.querySelector('input[type="text"]').value;
-            alert('Searching for: ' + query);
-            // Implement search functionality here
+        function playGame(url) {
+            document.getElementById('game-frame').src = url;
+            document.getElementById('game-screen').style.display = 'block';
         }
-        function showContact() {
-            document.getElementById('contact-info').style.display = 'block';
-            document.getElementById('top-rated').style.display = 'none';
+
+        function closeGame() {
+            document.getElementById('game-frame').src = '';
+            document.getElementById('game-screen').style.display = 'none';
         }
-        document.querySelector('.nav-button').addEventListener('click', function() {
-            document.getElementById('top-rated').style.display = 'block';
-        });
     </script>
 </body>
 </html>
-
